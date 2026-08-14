@@ -158,10 +158,10 @@ struct ProjektAkteView: View {
                             .help("Git ohne Remote")
                     }
                     Button("Finder") {
-                        NSWorkspace.shared.activateFileViewerSelecting([ordner.url])
+                        AktionsHelfer.imFinderZeigen(ordner.url)
                     }
                     Button("Terminal") {
-                        openTerminal(bei: ordner.url)
+                        AktionsHelfer.terminalOeffnen(bei: ordner.url)
                     }
                 }
                 .padding(10)
@@ -241,28 +241,8 @@ struct ProjektAkteView: View {
 
     // MARK: - Aktionen
 
-    /// Öffnet ein Terminal im (ersten) Projektordner und startet `claude`.
-    /// Beim ersten Mal fragt macOS nach der Automation-Berechtigung für Terminal.
     private func claudeWeiterarbeiten() {
         guard let ordner = projekt.ordner.first else { return }
-        let prozess = Process()
-        prozess.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
-        prozess.arguments = [
-            "-e", "on run argv",
-            "-e", "tell application \"Terminal\"",
-            "-e", "activate",
-            "-e", "do script \"cd \" & quoted form of item 1 of argv & \" && claude\"",
-            "-e", "end tell",
-            "-e", "end run",
-            ordner.url.path
-        ]
-        try? prozess.run()
-    }
-
-    private func openTerminal(bei url: URL) {
-        let prozess = Process()
-        prozess.executableURL = URL(fileURLWithPath: "/usr/bin/open")
-        prozess.arguments = ["-a", "Terminal", url.path]
-        try? prozess.run()
+        AktionsHelfer.claudeStarten(bei: ordner.url)
     }
 }

@@ -46,8 +46,8 @@ cd App && xcodegen generate && xcodebuild -project Atlas.xcodeproj -scheme Atlas
 - Kein App Sandbox (App liest `~/Projekte` + `~/.claude` direkt; kein App-Store-Ziel).
 - Datenhaltung später: `atlas.json` im gesyncten Projekte-Ordner; `PROJEKTE.md` wird generiert.
 - Roadmap: V1 read-only Kartei → V2 Verwalten/Heilen → V3 Quick-Switcher/MCP (Details im Konzept).
-- **Stand 14.08.2026 (abends):** Kapitel 00–06 fertig: Skelett, PROJEKTE.md-Import,
-  Claude-Layer (Memory-Karten, Session-Zeitleiste, „Mit Claude weiterarbeiten"),
-  Gesundheits-Checks (11 Checks, Sidebar „Gesundheit", beim ersten Lauf 32 echte
-  Befunde inkl. 2 neuer Sicherheitsfunde). Offen: Name/Logo/Icon (wartet auf Jörn),
-  danach V2 (atlas.json, PROJEKTE.md-Export, Maschinen-Profile, geführtes Aufräumen).
+- **Stand 14.08.2026 (spät):** Kapitel 00–07 fertig: Skelett, PROJEKTE.md-Import,
+  Claude-Layer, Gesundheits-Checks (32 Befunde beim ersten Lauf), Quick-Switcher
+  (⌥ Leertaste, Carbon-Hotkey, KatalogStore geteilt, MenuBarExtra). Offen:
+  Name/Logo/Icon (wartet auf Jörn), danach V2 (atlas.json, PROJEKTE.md-Export,
+  Maschinen-Profile, geführtes Aufräumen).

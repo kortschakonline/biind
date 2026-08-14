@@ -3,17 +3,16 @@ import SwiftUI
 struct ContentView: View {
     private static let gesundheitID = "__gesundheit__"
 
-    @State private var katalog = Katalog()
-    @State private var befunde: [Befund] = []
-    @State private var auswahl: ProjektAkte.ID?
+    @Environment(KatalogStore.self) private var store
     @State private var suche = ""
 
     var body: some View {
+        @Bindable var store = store
         NavigationSplitView {
-            List(selection: $auswahl) {
+            List(selection: $store.auswahl) {
                 Section {
                     Label("Gesundheit", systemImage: "stethoscope")
-                        .badge(befunde.count)
+                        .badge(store.befunde.count)
                         .tag(Self.gesundheitID)
                 }
                 ForEach(gefilterteGruppen) { gruppe in
@@ -29,32 +28,26 @@ struct ContentView: View {
             .navigationTitle("Projekte")
             .navigationSplitViewColumnWidth(min: 230, ideal: 280)
         } detail: {
-            if auswahl == Self.gesundheitID {
-                BefundeView(befunde: befunde)
-            } else if let projekt = katalog.alleProjekte.first(where: { $0.id == auswahl }) {
+            if store.auswahl == Self.gesundheitID {
+                BefundeView(befunde: store.befunde)
+            } else if let projekt = store.katalog.alleProjekte.first(where: { $0.id == store.auswahl }) {
                 ProjektAkteView(projekt: projekt)
             } else {
                 ContentUnavailableView(
                     "Kein Projekt ausgewählt",
                     systemImage: "square.grid.2x2",
-                    description: Text("\(katalog.alleProjekte.count) Projekte in \(katalog.gruppen.count) Gruppen.")
+                    description: Text("\(store.katalog.alleProjekte.count) Projekte in \(store.katalog.gruppen.count) Gruppen. ⌥ Leertaste öffnet den Quick-Switcher.")
                 )
             }
         }
-        .task {
-            katalog = KatalogBuilder().build()
-            let fertigerKatalog = katalog
-            befunde = await Task.detached(priority: .utility) {
-                GesundheitsPruefer().pruefe(katalog: fertigerKatalog)
-            }.value
-        }
+        .task { await store.ladenFallsNoetig() }
     }
 
     /// Sucht in Klarnamen, Aliassen und Ordnernamen — „portal" findet das
-    /// Kortschak Studio. Der Vorgeschmack auf den späteren Quick-Switcher.
+    /// Kortschak Studio.
     private var gefilterteGruppen: [Katalog.Gruppe] {
-        guard !suche.isEmpty else { return katalog.gruppen }
-        return katalog.gruppen.compactMap { gruppe in
+        guard !suche.isEmpty else { return store.katalog.gruppen }
+        return store.katalog.gruppen.compactMap { gruppe in
             let treffer = gruppe.projekte.filter { $0.passt(zu: suche) }
             return treffer.isEmpty ? nil : Katalog.Gruppe(name: gruppe.name, projekte: treffer)
         }

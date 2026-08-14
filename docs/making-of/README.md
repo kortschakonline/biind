@@ -27,5 +27,6 @@
 | 04 | [PROJEKTE.md-Import & Identitäts-Ebene](04-projekte-md-import.md) | ✅ |
 | 05 | [Claude-Layer: Gedächtnis & Sessions](05-claude-layer.md) | ✅ |
 | 06 | [Gesundheits-Checks](06-gesundheits-checks.md) | ✅ |
+| 07 | [Quick-Switcher: ⌥ Leertaste](07-quick-switcher.md) | ✅ |
 | — | Logo & App-Icon (macOSicons-API) | wartet auf Namen — bewusst als eigener Design-Prozess geplant, „das soll cool werden und nicht so nebenbei" (Jörn) |
 | — | Erste lauffähige Version | geplant |
