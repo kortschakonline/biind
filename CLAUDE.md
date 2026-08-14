@@ -39,6 +39,9 @@ cd App && xcodegen generate && xcodebuild -project Atlas.xcodeproj -scheme Atlas
 - **Name offen:** Arbeitstitel „Projekt-Atlas" / Target „Atlas". Shortlist in
   `docs/making-of/02-namensfindung.md` — Jörn entscheidet. Danach: Logo, dann
   App-Icon über die macOSicons-API (liegt in `~/Projekte/Icons`, `.env` + `test-api.sh`).
+  **Wichtig:** Logo/Icon ist ein bewusster Design-Prozess („soll cool werden, nicht
+  so nebenbei") — nicht einfach schnell generieren, sondern mit Jörn als eigenen
+  Schritt gestalten (Richtungen, Varianten, Entscheidung) und im Making-Of dokumentieren.
 - UI-Sprache Deutsch, Code/Bezeichner Englisch mit deutschen Domänenbegriffen wo sinnvoll.
 - Kein App Sandbox (App liest `~/Projekte` + `~/.claude` direkt; kein App-Store-Ziel).
 - Datenhaltung später: `atlas.json` im gesyncten Projekte-Ordner; `PROJEKTE.md` wird generiert.
