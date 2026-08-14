@@ -51,7 +51,8 @@ struct GesundheitsPruefer {
                 schweregrad: .kritisch,
                 titel: "Zugangsdaten in .git/config: \(ordner.name)",
                 erklaerung: "Die Git-Konfiguration enthält offenbar ein Token oder Passwort im Klartext. Token widerrufen und das Remote auf SSH umstellen.",
-                pfad: ordner.url.appendingPathComponent(".git/config").path
+                pfad: ordner.url.appendingPathComponent(".git/config").path,
+                art: .tokenImGitConfig
             )
         }
     }
@@ -133,7 +134,9 @@ struct GesundheitsPruefer {
                     schweregrad: .warnung,
                     titel: "Mögliches Duplikat: \(a.name) ↔ \(b.name)",
                     erklaerung: "Zwei Ordner mit fast gleichem Namen in verschiedenen Projekten — Arbeitskopie, Tippfehler-Doppel oder Überbleibsel? Eines behalten, das andere archivieren.",
-                    pfad: a.url.path
+                    pfad: a.url.path,
+                    art: .duplikatVerdacht,
+                    pfad2: b.url.path
                 ))
             }
         }
@@ -227,7 +230,8 @@ struct GesundheitsPruefer {
                 erklaerung: inhalt.isEmpty
                     ? "Der Ordner ist leer — Kandidat zum Aufräumen."
                     : "Enthält nur „\(inhalt[0])\u{201C} — Kandidat zum Aufräumen oder Zusammenlegen.",
-                pfad: ordner.url.path
+                pfad: ordner.url.path,
+                art: .leererOrdner
             )
         }
     }
@@ -262,7 +266,8 @@ struct GesundheitsPruefer {
                     schweregrad: .hinweis,
                     titel: "Ohne Eintrag in PROJEKTE.md: \(projekt.klarname)",
                     erklaerung: "Der Ordner steht nicht in der Landkarte — eintragen, einem Projekt zuordnen oder aufräumen.",
-                    pfad: ordner.url.path
+                    pfad: ordner.url.path,
+                    art: .ohneEintrag
                 )
             } ?? []
     }

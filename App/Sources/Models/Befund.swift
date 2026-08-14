@@ -14,6 +14,10 @@ enum Schweregrad: Int, Comparable, Hashable {
 enum BefundArt: Hashable {
     case allgemein
     case verwaisterClaudeSpeicher
+    case duplikatVerdacht
+    case leererOrdner
+    case ohneEintrag
+    case tokenImGitConfig
 }
 
 /// Ein Befund der Gesundheits-Checks — die automatisierte Version der
@@ -25,6 +29,8 @@ struct Befund: Identifiable, Hashable {
     /// Betroffener Pfad, falls es einen konkreten Ort gibt („Zeigen"-Button).
     let pfad: String?
     var art: BefundArt = .allgemein
+    /// Zweiter Pfad, wo eine Aktion zwei Beteiligte hat (Duplikat-Paar).
+    var pfad2: String? = nil
 
     var id: String { titel + "|" + (pfad ?? "") }
 }

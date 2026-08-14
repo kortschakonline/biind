@@ -168,6 +168,43 @@ final class KatalogStore {
         return bericht
     }
 
+    // MARK: - Geführtes Aufräumen
+
+    func archiviereOrdner(pfad: String) -> String? {
+        guard let neuerPfad = try? AufraeumHelfer().archiviere(
+            pfad: pfad, projekteRoot: verwaltung.projekteRoot
+        ) else { return nil }
+        entferneOrdnerToken(pfad)
+        persistiereUndBaueNeu(auswahlDanach: nil)
+        return neuerPfad
+    }
+
+    func legeOrdnerInPapierkorb(pfad: String) -> Bool {
+        guard (try? AufraeumHelfer().inPapierkorb(pfad: pfad)) != nil else { return false }
+        entferneOrdnerToken(pfad)
+        persistiereUndBaueNeu(auswahlDanach: nil)
+        return true
+    }
+
+    func stelleGitRemoteUm(configPfad: String) -> (alt: String, neu: String)? {
+        let ergebnis = try? AufraeumHelfer().stelleSshUm(configPfad: configPfad)
+        Task { await checksAktualisieren() }
+        return ergebnis
+    }
+
+    func istImAtlas(pfad: String) -> Bool {
+        let token = verwaltung.tokenisieren(pfad)
+        return atlas.projekte.contains { $0.ordner.contains(token) }
+    }
+
+    private func entferneOrdnerToken(_ pfad: String) {
+        let token = verwaltung.tokenisieren(pfad)
+        for index in atlas.projekte.indices where atlas.projekte[index].ordner.contains(token) {
+            atlas.projekte[index].ordner.removeAll { $0 == token }
+            atlas.projekte[index].geaendert = Date()
+        }
+    }
+
     // MARK: - Intern
 
     private func stelleGruppeSicher(_ name: String) {

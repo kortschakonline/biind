@@ -6,12 +6,25 @@ import AppKit
 struct BefundeView: View {
     let befunde: [Befund]
 
+    @Environment(KatalogStore.self) private var store
+
     private struct QuellRef: Identifiable {
         let pfad: String
         var id: String { pfad }
     }
 
+    private struct PaarRef: Identifiable {
+        let pfadA: String
+        let pfadB: String
+        var id: String { pfadA + "|" + pfadB }
+    }
+
     @State private var zusammenfuehrenQuelle: QuellRef?
+    @State private var duplikatPaar: PaarRef?
+    @State private var sshConfig: QuellRef?
+    @State private var aufnehmenPfad: QuellRef?
+    @State private var zuordnenPfad: QuellRef?
+    @State private var papierkorbPfad: String?
 
     var body: some View {
         ScrollView {
@@ -48,12 +61,7 @@ struct BefundeView: View {
                             }
                         }
                         Spacer()
-                        if befund.art == .verwaisterClaudeSpeicher, let pfad = befund.pfad {
-                            Button("Zusammenführen …") {
-                                zusammenfuehrenQuelle = QuellRef(pfad: pfad)
-                            }
-                            .buttonStyle(.borderedProminent)
-                        }
+                        aktionen(fuer: befund)
                         if let pfad = befund.pfad {
                             Button("Zeigen") {
                                 NSWorkspace.shared.activateFileViewerSelecting(
@@ -72,6 +80,70 @@ struct BefundeView: View {
         }
         .sheet(item: $zusammenfuehrenQuelle) { quelle in
             ZusammenfuehrenSheet(quellPfad: quelle.pfad)
+        }
+        .sheet(item: $duplikatPaar) { paar in
+            DuplikatSheet(pfadA: paar.pfadA, pfadB: paar.pfadB)
+        }
+        .sheet(item: $sshConfig) { ref in
+            SshUmstellenSheet(configPfad: ref.pfad)
+        }
+        .sheet(item: $aufnehmenPfad) { ref in
+            NeuesProjektSheet(
+                ordnerPfad: ref.pfad,
+                vorschlag: URL(fileURLWithPath: ref.pfad).lastPathComponent
+            )
+        }
+        .sheet(item: $zuordnenPfad) { ref in
+            OrdnerZuordnenSheet(ordnerPfad: ref.pfad)
+        }
+        .alert(
+            "In den Papierkorb legen?",
+            isPresented: Binding(
+                get: { papierkorbPfad != nil },
+                set: { if !$0 { papierkorbPfad = nil } }
+            )
+        ) {
+            Button("Abbrechen", role: .cancel) { papierkorbPfad = nil }
+            Button("In den Papierkorb") {
+                if let pfad = papierkorbPfad {
+                    _ = store.legeOrdnerInPapierkorb(pfad: pfad)
+                }
+                papierkorbPfad = nil
+            }
+        } message: {
+            Text("„\(papierkorbPfad.map { URL(fileURLWithPath: $0).lastPathComponent } ?? "")\u{201C} wandert in den Finder-Papierkorb und lässt sich von dort wiederherstellen.")
+        }
+    }
+
+    @ViewBuilder
+    private func aktionen(fuer befund: Befund) -> some View {
+        switch befund.art {
+        case .verwaisterClaudeSpeicher:
+            if let pfad = befund.pfad {
+                Button("Zusammenführen …") { zusammenfuehrenQuelle = QuellRef(pfad: pfad) }
+                    .buttonStyle(.borderedProminent)
+            }
+        case .duplikatVerdacht:
+            if let pfadA = befund.pfad, let pfadB = befund.pfad2 {
+                Button("Aufräumen …") { duplikatPaar = PaarRef(pfadA: pfadA, pfadB: pfadB) }
+                    .buttonStyle(.borderedProminent)
+            }
+        case .tokenImGitConfig:
+            if let pfad = befund.pfad {
+                Button("Auf SSH umstellen …") { sshConfig = QuellRef(pfad: pfad) }
+                    .buttonStyle(.borderedProminent)
+            }
+        case .leererOrdner:
+            if let pfad = befund.pfad {
+                Button("In den Papierkorb …") { papierkorbPfad = pfad }
+            }
+        case .ohneEintrag:
+            if let pfad = befund.pfad {
+                Button("Aufnehmen …") { aufnehmenPfad = QuellRef(pfad: pfad) }
+                Button("Zuordnen …") { zuordnenPfad = QuellRef(pfad: pfad) }
+            }
+        case .allgemein:
+            EmptyView()
         }
     }
 

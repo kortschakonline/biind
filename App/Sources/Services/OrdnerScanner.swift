@@ -25,6 +25,7 @@ struct OrdnerScanner {
 
         return eintraege
             .filter { (try? $0.resourceValues(forKeys: [.isDirectoryKey]).isDirectory) == true }
+            .filter { $0.lastPathComponent != "_Archiv" }
             .map(einzelOrdner(bei:))
             .sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
     }
