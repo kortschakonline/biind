@@ -1,11 +1,15 @@
 import SwiftUI
 import AppKit
 
-/// Die „Akte" eines Projekts: Identität oben, Kennzahlen, dann alle Ordner
-/// mit Schnellaktionen. Ordner, die auf diesem Mac fehlen, werden als solche
-/// gezeigt — das Zwei-Mac-Setup soll sichtbar sein, nicht verwirren.
+/// Die „Akte" eines Projekts: Identität oben, Kennzahlen, Ordner mit
+/// Schnellaktionen, dann der Claude-Layer — das Projektgedächtnis als
+/// aufklappbare Karten und der Session-Verlauf. Ordner, die auf diesem Mac
+/// fehlen, werden als solche gezeigt (Zwei-Mac-Setup sichtbar machen).
 struct ProjektAkteView: View {
     let projekt: ProjektAkte
+
+    @State private var memories: [MemoryEintrag] = []
+    @State private var sessions: [SessionEintrag] = []
 
     var body: some View {
         ScrollView {
@@ -13,6 +17,8 @@ struct ProjektAkteView: View {
                 kopf
                 kennzahlen
                 ordnerListe
+                if !memories.isEmpty { gedaechtnis }
+                if !sessions.isEmpty { sessionListe }
                 if let details = projekt.details, !details.isEmpty {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Notizen aus PROJEKTE.md")
@@ -27,6 +33,15 @@ struct ProjektAkteView: View {
             }
             .padding(24)
             .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .task(id: projekt.id) {
+            let ordner = projekt.ordner
+            let geladen = await Task.detached(priority: .userInitiated) {
+                let leser = ClaudeLeser()
+                return (leser.memories(fuer: ordner), leser.sessions(fuer: ordner))
+            }.value
+            memories = geladen.0
+            sessions = geladen.1
         }
     }
 
@@ -56,6 +71,16 @@ struct ProjektAkteView: View {
             if !projekt.aliasse.isEmpty {
                 Text(projekt.aliasse.map { "„\($0)\u{201C}" }.joined(separator: "  ·  "))
                     .foregroundStyle(.secondary)
+            }
+            if !projekt.ordner.isEmpty {
+                Button {
+                    claudeWeiterarbeiten()
+                } label: {
+                    Label("Mit Claude weiterarbeiten", systemImage: "sparkles")
+                }
+                .buttonStyle(.borderedProminent)
+                .help("Öffnet ein Terminal im Projektordner und startet Claude Code")
+                .padding(.top, 6)
             }
         }
     }
@@ -159,6 +184,79 @@ struct ProjektAkteView: View {
                 .background(.quaternary.opacity(0.3), in: RoundedRectangle(cornerRadius: 8))
             }
         }
+    }
+
+    // MARK: - Claude-Layer
+
+    private var gedaechtnis: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Claude-Gedächtnis")
+                .font(.headline)
+            ForEach(memories) { memory in
+                DisclosureGroup {
+                    Text(memory.inhalt)
+                        .font(.callout)
+                        .textSelection(.enabled)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 6)
+                } label: {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(memory.name)
+                            .fontWeight(.medium)
+                        if !memory.beschreibung.isEmpty {
+                            Text(memory.beschreibung)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+                .padding(10)
+                .background(.quaternary.opacity(0.5), in: RoundedRectangle(cornerRadius: 8))
+            }
+        }
+    }
+
+    private var sessionListe: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Sessions")
+                .font(.headline)
+            ForEach(sessions.prefix(12)) { session in
+                HStack(alignment: .firstTextBaseline, spacing: 10) {
+                    Text(session.datum?.formatted(date: .abbreviated, time: .shortened) ?? "—")
+                        .font(.caption.monospacedDigit())
+                        .foregroundStyle(.secondary)
+                        .frame(width: 130, alignment: .leading)
+                    Text(session.titel)
+                        .font(.callout)
+                        .lineLimit(1)
+                }
+            }
+            if sessions.count > 12 {
+                Text("… \(sessions.count - 12) weitere")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
+
+    // MARK: - Aktionen
+
+    /// Öffnet ein Terminal im (ersten) Projektordner und startet `claude`.
+    /// Beim ersten Mal fragt macOS nach der Automation-Berechtigung für Terminal.
+    private func claudeWeiterarbeiten() {
+        guard let ordner = projekt.ordner.first else { return }
+        let prozess = Process()
+        prozess.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
+        prozess.arguments = [
+            "-e", "on run argv",
+            "-e", "tell application \"Terminal\"",
+            "-e", "activate",
+            "-e", "do script \"cd \" & quoted form of item 1 of argv & \" && claude\"",
+            "-e", "end tell",
+            "-e", "end run",
+            ordner.url.path
+        ]
+        try? prozess.run()
     }
 
     private func openTerminal(bei url: URL) {

@@ -69,6 +69,7 @@ struct OrdnerScanner {
             .filter { $0.pathExtension == "md" && $0.lastPathComponent != "MEMORY.md" }
 
         return ClaudeDaten(
+            verzeichnis: dir,
             memoryCount: memories.count,
             sessionCount: sessions.count,
             letzteSession: letzte

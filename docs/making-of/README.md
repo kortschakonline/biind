@@ -25,6 +25,6 @@
 | 02 | [Namensfindung](02-namensfindung.md) | 🔄 offen |
 | 03 | [Grundgerüst (V1-Skelett)](03-grundgeruest.md) | ✅ |
 | 04 | [PROJEKTE.md-Import & Identitäts-Ebene](04-projekte-md-import.md) | ✅ |
+| 05 | [Claude-Layer: Gedächtnis & Sessions](05-claude-layer.md) | ✅ |
 | — | Logo & App-Icon (macOSicons-API) | geplant, wartet auf Namen |
-| — | Claude-Layer (Memories & Sessions) | geplant |
 | — | Erste lauffähige Version | geplant |

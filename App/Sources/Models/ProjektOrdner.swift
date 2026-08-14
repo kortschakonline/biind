@@ -2,6 +2,7 @@ import Foundation
 
 /// Claude-Daten zu einem Projektordner, gelesen aus `~/.claude/projects/<kodierter Pfad>/`.
 struct ClaudeDaten: Hashable {
+    var verzeichnis: URL
     var memoryCount: Int
     var sessionCount: Int
     var letzteSession: Date?
