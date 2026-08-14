@@ -10,10 +10,18 @@ final class KatalogStore {
     var katalog = Katalog()
     var befunde: [Befund] = []
     var auswahl: String?
+    /// Pfade neuer, noch unzugeordneter Ordner, die der Watcher entdeckt hat
+    /// (Banner im Hauptfenster).
+    var neueOrdnerHinweise: [String] = []
     private(set) var atlas = AtlasDatei()
 
     private let verwaltung = AtlasVerwaltung()
+    private let watcher = OrdnerWatcher()
     private var geladen = false
+    private var aktualisierungGeplant = false
+    /// Bytes der zuletzt selbst geschriebenen atlas.json — unterscheidet
+    /// eigene Schreibvorgänge von extern gesyncten Änderungen.
+    private var zuletztGeschrieben: Data?
 
     var gruppenNamen: [String] { atlas.gruppen }
 
@@ -23,8 +31,70 @@ final class KatalogStore {
         guard !geladen else { return }
         geladen = true
         atlas = verwaltung.ladeOderMigriere()
+        zuletztGeschrieben = try? Data(contentsOf: verwaltung.atlasURL)
         neuAufbauen()
+        starteWatcher()
         await checksAktualisieren()
+    }
+
+    // MARK: - Dateisystem-Watcher
+
+    private func starteWatcher() {
+        watcher.onAenderung = { [weak self] pfade in
+            MainActor.assumeIsolated { self?.dateisystemGeaendert(pfade) }
+        }
+        watcher.start(pfad: verwaltung.projekteRoot.path)
+    }
+
+    private func dateisystemGeaendert(_ pfade: [String]) {
+        let root = verwaltung.projekteRoot.path
+        let atlasDir = verwaltung.atlasVerzeichnis.path
+        let relevant = pfade.contains { pfad in
+            let bereinigt = pfad.hasSuffix("/") ? String(pfad.dropLast()) : pfad
+            return bereinigt == root || bereinigt == atlasDir
+        }
+        guard relevant else { return }
+        planeAktualisierung()
+    }
+
+    private func planeAktualisierung() {
+        guard !aktualisierungGeplant else { return }
+        aktualisierungGeplant = true
+        Task {
+            try? await Task.sleep(for: .seconds(1.2))
+            aktualisierungGeplant = false
+            await aussenAktualisieren()
+        }
+    }
+
+    private func aussenAktualisieren() async {
+        // atlas.json extern geändert (Sync vom anderen Mac)? Dann übernehmen.
+        if let daten = try? Data(contentsOf: verwaltung.atlasURL),
+           daten != zuletztGeschrieben,
+           let extern = verwaltung.dekodiere(daten) {
+            atlas = extern
+            zuletztGeschrieben = daten
+        }
+
+        let vorher = unzugeordnetePfade()
+        neuAufbauen()
+        let neu = unzugeordnetePfade().subtracting(vorher)
+        for pfad in neu.sorted() where !neueOrdnerHinweise.contains(pfad) {
+            neueOrdnerHinweise.append(pfad)
+        }
+        // Hinweise aufräumen, deren Ordner verschwunden oder inzwischen zugeordnet ist
+        let aktuell = unzugeordnetePfade()
+        neueOrdnerHinweise.removeAll { !aktuell.contains($0) }
+
+        await checksAktualisieren()
+    }
+
+    private func unzugeordnetePfade() -> Set<String> {
+        Set(
+            katalog.gruppen
+                .first { $0.name == "Nicht zugeordnet" }?
+                .projekte.compactMap { $0.ordner.first?.url.path } ?? []
+        )
     }
 
     private func neuAufbauen() {
@@ -106,6 +176,7 @@ final class KatalogStore {
 
     private func persistiereUndBaueNeu(auswahlDanach: String?) {
         verwaltung.speichern(atlas)
+        zuletztGeschrieben = try? Data(contentsOf: verwaltung.atlasURL)
         neuAufbauen()
         if let auswahlDanach { auswahl = auswahlDanach }
         Task { await checksAktualisieren() }

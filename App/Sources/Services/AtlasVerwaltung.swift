@@ -288,6 +288,11 @@ struct AtlasVerwaltung {
         }
     }
 
+    /// Für den Watcher: extern geänderte atlas.json (Sync vom anderen Mac) einlesen.
+    func dekodiere(_ daten: Data) -> AtlasDatei? {
+        try? decoder.decode(AtlasDatei.self, from: daten)
+    }
+
     // MARK: - Kleinteile
 
     private var encoder: JSONEncoder {

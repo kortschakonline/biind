@@ -55,6 +55,7 @@ cd App && xcodegen generate && xcodebuild -project Atlas.xcodeproj -scheme Atlas
   (atlas.json als Quelle, PROJEKTE.md generiert, Maschinen-Profile,
   Bearbeiten/Aufnehmen/Zuordnen), Memory-Zusammenführung für verwaiste
   Claude-Speicher (einzige Schreib-Operation in ~/.claude, bestätigungspflichtig,
-  Prinzip verschieben statt löschen). Offen: Name/Logo/Icon (wartet auf Jörn),
-  Backlog: FSEvents-Watcher, geführtes Aufräumen, echtes Konflikt-Merging,
-  GitHub-Veröffentlichung.
+  Prinzip verschieben statt löschen), FSEvents-Watcher (neue Ordner → Banner
+  mit Aufnehmen/Zuordnen; externe atlas.json-Syncs werden live übernommen).
+  Offen: Name/Logo/Icon (wartet auf Jörn), Backlog: geführtes Aufräumen,
+  echtes Konflikt-Merging, GitHub-Veröffentlichung.
