@@ -50,9 +50,11 @@ cd App && xcodegen generate && xcodebuild -project Atlas.xcodeproj -scheme Atlas
   PROJEKTE.md editieren — in der App ändern (oder atlas.json bearbeiten und App neu starten).
   Pfade dort als Tokens (`$PROJEKTE/…`, `$HEIM/…`), aufgelöst pro Maschine.
 - Roadmap: V1 read-only Kartei → V2 Verwalten/Heilen → V3 Quick-Switcher/MCP (Details im Konzept).
-- **Stand 14.08.2026 (spät):** Kapitel 00–08 fertig. V1 komplett (Kartei,
-  Claude-Layer, Gesundheits-Checks, Quick-Switcher ⌥Leertaste) und V2-Kern aktiv:
-  atlas.json als Quelle (migriert, 38 Projekte), PROJEKTE.md wird generiert,
-  Maschinen-Profile, Bearbeiten/Aufnehmen/Zuordnen-Sheets. Offen: Name/Logo/Icon
-  (wartet auf Jörn), Backlog: FSEvents-Watcher, Memory-Zusammenführung,
-  geführtes Aufräumen, echtes Konflikt-Merging, GitHub-Veröffentlichung.
+- **Stand 14.08.2026 (spät):** Kapitel 00–09 fertig. V1 komplett (Kartei,
+  Claude-Layer, Gesundheits-Checks, Quick-Switcher ⌥Leertaste), V2-Kern aktiv
+  (atlas.json als Quelle, PROJEKTE.md generiert, Maschinen-Profile,
+  Bearbeiten/Aufnehmen/Zuordnen), Memory-Zusammenführung für verwaiste
+  Claude-Speicher (einzige Schreib-Operation in ~/.claude, bestätigungspflichtig,
+  Prinzip verschieben statt löschen). Offen: Name/Logo/Icon (wartet auf Jörn),
+  Backlog: FSEvents-Watcher, geführtes Aufräumen, echtes Konflikt-Merging,
+  GitHub-Veröffentlichung.

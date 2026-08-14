@@ -86,6 +86,18 @@ final class KatalogStore {
         persistiereUndBaueNeu(auswahlDanach: projektID.uuidString)
     }
 
+    /// Die einzige schreibende Operation in `~/.claude` — immer vom Benutzer
+    /// im Sheet bestätigt.
+    func fuehreSpeicherZusammen(quellPfad: String, zielOrdnerPfad: String) -> MemoryZusammenfuehrer.Bericht? {
+        let bericht = try? MemoryZusammenfuehrer().fuehreZusammen(
+            quelle: URL(fileURLWithPath: quellPfad),
+            zielOrdner: URL(fileURLWithPath: zielOrdnerPfad)
+        )
+        neuAufbauen()
+        Task { await checksAktualisieren() }
+        return bericht
+    }
+
     // MARK: - Intern
 
     private func stelleGruppeSicher(_ name: String) {

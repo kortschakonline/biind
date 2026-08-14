@@ -29,5 +29,6 @@
 | 06 | [Gesundheits-Checks](06-gesundheits-checks.md) | ✅ |
 | 07 | [Quick-Switcher: ⌥ Leertaste](07-quick-switcher.md) | ✅ |
 | 08 | [V2: atlas.json wird die Quelle](08-atlas-json.md) | ✅ |
+| 09 | [Memory-Zusammenführung](09-memory-zusammenfuehrung.md) | ✅ |
 | — | Logo & App-Icon (macOSicons-API) | wartet auf Namen — bewusst als eigener Design-Prozess geplant, „das soll cool werden und nicht so nebenbei" (Jörn) |
 | — | Erste lauffähige Version | geplant |

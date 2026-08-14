@@ -6,6 +6,13 @@ import AppKit
 struct BefundeView: View {
     let befunde: [Befund]
 
+    private struct QuellRef: Identifiable {
+        let pfad: String
+        var id: String { pfad }
+    }
+
+    @State private var zusammenfuehrenQuelle: QuellRef?
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 18) {
@@ -41,6 +48,12 @@ struct BefundeView: View {
                             }
                         }
                         Spacer()
+                        if befund.art == .verwaisterClaudeSpeicher, let pfad = befund.pfad {
+                            Button("Zusammenführen …") {
+                                zusammenfuehrenQuelle = QuellRef(pfad: pfad)
+                            }
+                            .buttonStyle(.borderedProminent)
+                        }
                         if let pfad = befund.pfad {
                             Button("Zeigen") {
                                 NSWorkspace.shared.activateFileViewerSelecting(
@@ -56,6 +69,9 @@ struct BefundeView: View {
             }
             .padding(24)
             .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .sheet(item: $zusammenfuehrenQuelle) { quelle in
+            ZusammenfuehrenSheet(quellPfad: quelle.pfad)
         }
     }
 

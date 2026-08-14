@@ -10,6 +10,12 @@ enum Schweregrad: Int, Comparable, Hashable {
     }
 }
 
+/// Kennzeichnet Befunde, für die die App eine Heil-Aktion anbietet.
+enum BefundArt: Hashable {
+    case allgemein
+    case verwaisterClaudeSpeicher
+}
+
 /// Ein Befund der Gesundheits-Checks — die automatisierte Version der
 /// Aufräumliste aus PROJEKTE.md.
 struct Befund: Identifiable, Hashable {
@@ -18,6 +24,7 @@ struct Befund: Identifiable, Hashable {
     let erklaerung: String
     /// Betroffener Pfad, falls es einen konkreten Ort gibt („Zeigen"-Button).
     let pfad: String?
+    var art: BefundArt = .allgemein
 
     var id: String { titel + "|" + (pfad ?? "") }
 }

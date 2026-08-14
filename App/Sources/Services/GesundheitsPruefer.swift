@@ -191,7 +191,8 @@ struct GesundheitsPruefer {
                 schweregrad: .warnung,
                 titel: "Verwaister Claude-Speicher: \(name)",
                 erklaerung: "Kein passender Projektordner gefunden — vermutlich umbenannt, verschoben oder gelöscht. Die Sessions und Memories darin sind vom Projekt getrennt.",
-                pfad: eintrag.path
+                pfad: eintrag.path,
+                art: .verwaisterClaudeSpeicher
             ))
         }
         return befunde
