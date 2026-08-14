@@ -25,6 +25,7 @@
 | Name | Stärken | Schwächen (Recherche 15.08.2026) |
 |---|---|---|
 | **Orbito** | passt in die scano-Familie (zweisilbig, -o, freundlich), eindeutige Aussprache DE/EN, starke Bildwelt (Projekte im Orbit → Logo-Potenzial) | „Orbito" existiert bereits im Mac App Store (Brettspiel-Umsetzung); Orbit-Metapher im Mac-Utility-Raum überlaufen (Orbit, Orbital, OrbitRing, Expo Orbit — teils Launcher, unser Quick-Switcher-Terrain) |
+| **biind** ⭐ Jörns Favorit | Bedeutung trifft den Kern exakt (bindet Ordner ↔ Identität, Gedächtnis ↔ Projekt, Mac ↔ Mac); Doppel-i erzählbar (zwei Macs / zwei Welten) und als Logo-Leitidee stark (zwei i-Punkte, verbunden); scano-Familie; kurz, modern | visuelle Nähe zu „blind"; Buchstabier-Reibung („mit Doppel-i" — flickr-Effekt); schwache Kollision: BIIND Music (Pre-Seed-Musik-Streaming, anderer Sektor, kein Mac-Store-Eintrag) — bei Kommerzialisierung erneut prüfen, `biind.app`-Domain checken |
 
 Abgeleiteter Funke aus der Orbito-Diskussion: **„karto"** — die Landkarte, im
 scano-Stil. Noch ungeprüft.
