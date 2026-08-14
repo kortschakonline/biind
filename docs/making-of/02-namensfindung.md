@@ -20,6 +20,12 @@
 | **Kataster** | das amtliche Verzeichnis, das Flächen ihren Eigentümern zuordnet — exakt die Kernidee (Ordner ↔ Identität) | klingt amtlich-trocken (kann aber Charme sein) |
 | **Atlas** | der Arbeitstitel; knüpft an die „Landkarte" (PROJEKTE.md) an | in Software sehr verbreitet (MongoDB Atlas u. a.) |
 
+## Verworfen
+
+| Name | Idee | Warum verworfen (15.08.2026) |
+|---|---|---|
+| **ProCen** (Jörn) | Kontraktion aus „Projekt-Zentrale" | Aussprache stolpert (deutsch „Prozen" ≈ „Prozent", englisch „Pro-Sen"), schwimmt im Meer der Pro-Kontraktionen (ProCount, Prokon, ProDG …) und erzählt nichts vom Charakter der App. Kollisionsprüfung war immerhin frei. Abgeleiteter Twist „ProZen" (Zen im Projektchaos) bleibt als Option im Raum. |
+
 ## Zwischenstand
 
 Solange kein Name fixiert ist, läuft alles unter **Arbeitstitel „Projekt-Atlas"**
