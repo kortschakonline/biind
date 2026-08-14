@@ -1,4 +1,4 @@
-# Making-Of: Die Entstehung der Projekt-App
+# Making-Of: Die Entstehung von biind
 
 > **Zweck:** Dieses Verzeichnis dokumentiert jeden wichtigen Schritt der App-Entwicklung —
 > von der ersten Idee bis zum fertigen Produkt. Ziel ist, am Ende zeigen zu können,
@@ -22,7 +22,7 @@
 |---|---|---|
 | 00 | [Idee & Konzept](00-idee-und-konzept.md) | ✅ |
 | 01 | [Projekt-Setup & Werkzeuge](01-projekt-setup.md) | ✅ |
-| 02 | [Namensfindung](02-namensfindung.md) | 🔄 offen |
+| 02 | [Namensfindung](02-namensfindung.md) | ✅ **biind** |
 | 03 | [Grundgerüst (V1-Skelett)](03-grundgeruest.md) | ✅ |
 | 04 | [PROJEKTE.md-Import & Identitäts-Ebene](04-projekte-md-import.md) | ✅ |
 | 05 | [Claude-Layer: Gedächtnis & Sessions](05-claude-layer.md) | ✅ |
@@ -32,5 +32,6 @@
 | 09 | [Memory-Zusammenführung](09-memory-zusammenfuehrung.md) | ✅ |
 | 10 | [FSEvents-Watcher](10-fsevents-watcher.md) | ✅ |
 | 11 | [Geführtes Aufräumen](11-gefuehrtes-aufraeumen.md) | ✅ |
-| — | Logo & App-Icon (macOSicons-API) | wartet auf Namen — bewusst als eigener Design-Prozess geplant, „das soll cool werden und nicht so nebenbei" (Jörn) |
+| 12 | [Logo-Prozess: Zwei i, verbunden](12-logo-prozess.md) | 🔄 Runde 1 |
+| — | App-Icon (macOSicons-API) | nach der Logo-Entscheidung |
 | — | Erste lauffähige Version | geplant |

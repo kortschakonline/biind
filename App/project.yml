@@ -12,9 +12,10 @@ targets:
       - Sources
     settings:
       base:
-        # Anzeigename = Arbeitstitel; nach der Namens-Entscheidung nur diese Zeile ändern
-        PRODUCT_NAME: Projekt-Atlas
-        PRODUCT_BUNDLE_IDENTIFIER: digital.jrn.atlas
+        # Offizieller Name seit 15.08.2026: biind — „Atlas" bleibt interner Codename
+        # (Projekt/Target/Typen), wie bei Apple-Projekten üblich.
+        PRODUCT_NAME: biind
+        PRODUCT_BUNDLE_IDENTIFIER: digital.jrn.biind
         MARKETING_VERSION: 0.1.0
         CURRENT_PROJECT_VERSION: 1
         SWIFT_VERSION: "6.0"

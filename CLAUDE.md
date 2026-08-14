@@ -1,4 +1,4 @@
-# Projekt-Atlas (Arbeitstitel) — Mac-App zur Verwaltung der Claude-Projekte
+# biind — Mac-App zur Verwaltung der Claude-Projekte
 
 Native SwiftUI-App (macOS), die Jörns Projektlandschaft verwaltet: Projekt-Identitäten
 (Klarname, Aliasse, Kunde) getrennt von Ordnern, Claude-Memories/Sessions sichtbar,
@@ -36,12 +36,13 @@ cd App && xcodegen generate && xcodebuild -project Atlas.xcodeproj -scheme Atlas
 
 ## Konventionen & Stand
 
-- **Name offen:** Arbeitstitel „Projekt-Atlas" / Target „Atlas". Shortlist in
-  `docs/making-of/02-namensfindung.md` — Jörn entscheidet. Danach: Logo, dann
-  App-Icon über die macOSicons-API (liegt in `~/Projekte/Icons`, `.env` + `test-api.sh`).
-  **Wichtig:** Logo/Icon ist ein bewusster Design-Prozess („soll cool werden, nicht
-  so nebenbei") — nicht einfach schnell generieren, sondern mit Jörn als eigenen
-  Schritt gestalten (Richtungen, Varianten, Entscheidung) und im Making-Of dokumentieren.
+- **Name entschieden (15.08.2026): biind** — klein geschrieben, Doppel-i.
+  „Atlas" bleibt interner Codename (Projekt/Target/Typen/atlas.json).
+  Der gebaute Debug-Build heißt jetzt `biind.app` (killall/open entsprechend).
+  **Logo/Icon ist ein bewusster Design-Prozess** („soll cool werden, nicht so
+  nebenbei") — Leitidee: zwei i-Punkte, verbunden. Jörn entwirft selbst, Claude
+  liefert Vergleichs-Richtungen; Entscheidung bei Jörn, alles im Making-Of.
+  Icon am Ende über die macOSicons-API (`~/Projekte/Icons`, `.env` + `test-api.sh`).
 - UI-Sprache Deutsch, Code/Bezeichner Englisch mit deutschen Domänenbegriffen wo sinnvoll.
 - Kein App Sandbox (App liest `~/Projekte` + `~/.claude` direkt; kein App-Store-Ziel).
 - **Datenhaltung (seit V2 aktiv):** `~/Projekte/.atlas/atlas.json` ist die Quelle;

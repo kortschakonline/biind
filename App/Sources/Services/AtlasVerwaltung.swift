@@ -122,8 +122,8 @@ struct AtlasVerwaltung {
                 }
                 continue
             }
-            // Generator-Marker einer früheren Version nicht erneut einsammeln
-            if zeile.hasPrefix("<!--"), zeile.contains("Projekt-Atlas") { continue }
+            // Generator-Marker (alte wie neue) nicht erneut einsammeln
+            if zeile.hasPrefix("<!--"), zeile.contains("Generiert von") { continue }
             switch phase {
             case .kopf:
                 kopf.append(zeile)
@@ -193,7 +193,7 @@ struct AtlasVerwaltung {
 
     func markdownText(fuer atlas: AtlasDatei) -> String {
         var teile: [String] = []
-        teile.append("<!-- Generiert von Projekt-Atlas — Projektdaten bitte in der App pflegen, Freitext-Abschnitte bleiben beim Export erhalten. -->")
+        teile.append("<!-- Generiert von biind — Projektdaten bitte in der App pflegen, Freitext-Abschnitte bleiben beim Export erhalten. -->")
         if !atlas.kopftext.isEmpty { teile.append(atlas.kopftext) }
         for gruppe in atlas.gruppen {
             let projekte = atlas.projekte.filter { $0.gruppe == gruppe }

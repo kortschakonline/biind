@@ -19,7 +19,7 @@ struct AtlasApp: App {
         }
         .defaultSize(width: 960, height: 640)
 
-        MenuBarExtra("Projekt-Atlas", systemImage: "square.grid.3x3") {
+        MenuBarExtra("biind", systemImage: "square.grid.3x3") {
             Button("Quick-Switcher  (⌥ Leertaste)") { switcher.umschalten() }
             Button("Hauptfenster zeigen") { AktionsHelfer.hauptfensterZeigen() }
             Divider()

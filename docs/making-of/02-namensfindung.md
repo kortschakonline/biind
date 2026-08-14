@@ -1,6 +1,20 @@
 # 02 · Namensfindung
 
-**Datum:** 14.08.2026 · **Status: offen** — Jörn denkt weiter nach
+**Datum:** 14.–15.08.2026 · **Status: ✅ entschieden — die App heißt „biind"**
+
+## Die Entscheidung (15.08.2026)
+
+Nach drei Kandidaten-Runden (ProCen → verworfen, Orbito → Kollision im
+App Store, biind → Favorit) hat Jörn entschieden: **biind**. Klein geschrieben,
+mit Doppel-i. Der Name trifft den Kern der App — sie *bindet* Ordner an
+Identitäten, Claudes Gedächtnis an Projekte und zwei Macs aneinander — und
+die zwei i sind die Leitidee fürs Logo gleich mit: zwei Punkte, verbunden.
+
+Umsetzung: Anzeigename + Bundle-ID (`digital.jrn.biind`) in einer Zeile
+`project.yml` geändert, Menüleiste und PROJEKTE.md-Generator-Marker angepasst,
+der eigene Eintrag in der atlas.json umbenannt (alter Name bleibt als Alias).
+**„Atlas" bleibt der interne Codename** für Projekt, Target und Typen — wie
+bei Apple-Projekten üblich; die Datendatei heißt weiter atlas.json.
 
 ## Kriterien
 

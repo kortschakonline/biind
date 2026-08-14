@@ -1,0 +1,275 @@
+<title>biind Logo-Richtungen</title>
+<style>
+  :root {
+    --bg: #F3F5F6;
+    --surface: #FFFFFF;
+    --ink: #1B2530;
+    --muted: #5D6A74;
+    --line: #D9DFE2;
+    --accent: #0E6E6B;
+    --frost-bg: #F4F6F8;
+    --frost-ink: #1C2430;
+    --frost-accent: #0E6E6B;
+    --night-bg: #10151B;
+    --night-ink: #E8ECF0;
+    --night-accent: #4FB3AE;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14181B;
+      --surface: #1C2126;
+      --ink: #E6EAEC;
+      --muted: #97A3AC;
+      --line: #303A40;
+      --accent: #4FB3AE;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14181B;
+    --surface: #1C2126;
+    --ink: #E6EAEC;
+    --muted: #97A3AC;
+    --line: #303A40;
+    --accent: #4FB3AE;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    line-height: 1.55;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 56px 28px 96px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 10px;
+  }
+  h1 {
+    font-size: clamp(32px, 5vw, 42px); font-weight: 700; letter-spacing: -.02em;
+    line-height: 1.1; margin: 0 0 12px; text-wrap: balance;
+  }
+  .lede { font-size: 17px; color: var(--muted); max-width: 62ch; margin: 0; }
+  .lede b { color: var(--ink); }
+
+  section { margin-top: 64px; }
+  h2 { font-size: 22px; font-weight: 700; letter-spacing: -.015em; margin: 0 0 4px; }
+  h2 .tag {
+    font-size: 12px; font-weight: 600; color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    border-radius: 20px; padding: 2px 9px; margin-left: 10px; vertical-align: 3px;
+  }
+  .sub { color: var(--muted); margin: 0 0 18px; max-width: 66ch; }
+
+  .marken { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 620px) { .marken { grid-template-columns: 1fr; } }
+  .karte {
+    border-radius: 14px; border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    padding: 30px 20px; min-height: 170px;
+  }
+  .karte.frost { background: var(--frost-bg); }
+  .karte.night { background: var(--night-bg); border-color: transparent; }
+  .karte svg { width: 100%; max-width: 340px; height: auto; display: block; }
+
+  .icons { display: flex; gap: 18px; margin-top: 14px; flex-wrap: wrap; align-items: center; }
+  .icons svg { width: 96px; height: 96px; display: block; border-radius: 22px; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+  .icons .label { font-size: 12px; color: var(--muted); }
+
+  .why { margin-top: 16px; display: grid; gap: 6px; max-width: 70ch; }
+  .why p { margin: 0; font-size: 14.5px; }
+  .why p b { font-weight: 650; }
+  .why .contra { color: var(--muted); }
+
+  .fazit {
+    margin-top: 72px; padding: 22px 24px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .fazit h2 { margin-bottom: 8px; }
+  .fazit p { margin: 8px 0 0; max-width: 70ch; }
+  .fazit p:first-of-type { margin-top: 0; }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Design-Prozess · Runde 1 · Claude-Vorschläge zum Vergleich</p>
+    <h1>biind — drei Logo-Richtungen</h1>
+    <p class="lede">Alle drei bauen auf derselben Leitidee: <b>Das Doppel-i ist das Logo.</b> Zwei gleiche Zeichen — zwei Macs, zwei Welten (Ordner ↔ Identität) — und dazwischen die Verbindung, die biind herstellt. Die Wortmarke ist bewusst konstruiert (Monolinie aus Kreisen und Stämmen), nicht gesetzt — sie kann später jede Schrift werden, die Geste bleibt.</p>
+  </header>
+
+  <!-- ================= RICHTUNG A ================= -->
+  <section>
+    <h2>A · Liaison<span class="tag">die stille</span></h2>
+    <p class="sub">Die beiden i-Punkte verschmelzen zu einem einzigen Bogen — eine Brücke, die nur da ist, wo man hinschaut. Am reduziertesten, am elegantesten.</p>
+    <div class="marken">
+      <div class="karte frost">
+        <svg viewBox="15 0 450 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wortmarke biind, Richtung Liaison, helle Variante">
+          <g stroke="#1C2430" stroke-width="18" stroke-linecap="round" fill="none">
+            <line x1="50" y1="30" x2="50" y2="170"/><circle cx="84" cy="136" r="34"/>
+            <line x1="150" y1="70" x2="150" y2="170"/>
+            <line x1="200" y1="70" x2="200" y2="170"/>
+            <line x1="250" y1="70" x2="250" y2="170"/><path d="M250,104 A34,34 0 0 1 318,104 L318,170"/>
+            <circle cx="388" cy="136" r="34"/><line x1="422" y1="30" x2="422" y2="170"/>
+          </g>
+          <path d="M150,44 A25,25 0 0 1 200,44" stroke="#0E6E6B" stroke-width="18" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="karte night">
+        <svg viewBox="15 0 450 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wortmarke biind, Richtung Liaison, dunkle Variante">
+          <g stroke="#E8ECF0" stroke-width="18" stroke-linecap="round" fill="none">
+            <line x1="50" y1="30" x2="50" y2="170"/><circle cx="84" cy="136" r="34"/>
+            <line x1="150" y1="70" x2="150" y2="170"/>
+            <line x1="200" y1="70" x2="200" y2="170"/>
+            <line x1="250" y1="70" x2="250" y2="170"/><path d="M250,104 A34,34 0 0 1 318,104 L318,170"/>
+            <circle cx="388" cy="136" r="34"/><line x1="422" y1="30" x2="422" y2="170"/>
+          </g>
+          <path d="M150,44 A25,25 0 0 1 200,44" stroke="#4FB3AE" stroke-width="18" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+    </div>
+    <div class="icons">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="App-Icon Liaison, Frost">
+        <rect width="120" height="120" fill="#F4F6F8"/>
+        <g stroke-linecap="round" fill="none">
+          <line x1="44" y1="56" x2="44" y2="94" stroke="#1C2430" stroke-width="13"/>
+          <line x1="76" y1="56" x2="76" y2="94" stroke="#1C2430" stroke-width="13"/>
+          <path d="M44,38 A19,19 0 0 1 76,38" stroke="#0E6E6B" stroke-width="13"/>
+        </g>
+      </svg>
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="App-Icon Liaison, Midnight">
+        <rect width="120" height="120" fill="#10151B"/>
+        <g stroke-linecap="round" fill="none">
+          <line x1="44" y1="56" x2="44" y2="94" stroke="#E8ECF0" stroke-width="13"/>
+          <line x1="76" y1="56" x2="76" y2="94" stroke="#E8ECF0" stroke-width="13"/>
+          <path d="M44,38 A19,19 0 0 1 76,38" stroke="#4FB3AE" stroke-width="13"/>
+        </g>
+      </svg>
+      <span class="label">Frost · Midnight</span>
+    </div>
+    <div class="why">
+      <p><b>Dafür:</b> Maximale Ruhe — passt zur App, die Ordnung ins Chaos bringt. Das Icon funktioniert winzig (Menüleiste!) und ist als Template-Icon monochrom denkbar. Die Brücke liest sich auch als Lächeln.</p>
+      <p class="contra"><b>Dagegen:</b> Ohne die Punkte verliert „biind" beim ersten Lesen kurz seine i-Erkennbarkeit — man liest „bnd" mit Bogen. Mutig, aber erklärungsbedürftiger als B und C.</p>
+    </div>
+  </section>
+
+  <!-- ================= RICHTUNG B ================= -->
+  <section>
+    <h2>B · Bindung<span class="tag">die klarste</span></h2>
+    <p class="sub">Die zwei i-Punkte bleiben — und werden durch eine Linie zur Hantel verbunden: eine chemische Bindung. Das wörtlichste Bild für das, was die App tut.</p>
+    <div class="marken">
+      <div class="karte frost">
+        <svg viewBox="15 0 450 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wortmarke biind, Richtung Bindung, helle Variante">
+          <g stroke="#1C2430" stroke-width="18" stroke-linecap="round" fill="none">
+            <line x1="50" y1="30" x2="50" y2="170"/><circle cx="84" cy="136" r="34"/>
+            <line x1="150" y1="70" x2="150" y2="170"/>
+            <line x1="200" y1="70" x2="200" y2="170"/>
+            <line x1="250" y1="70" x2="250" y2="170"/><path d="M250,104 A34,34 0 0 1 318,104 L318,170"/>
+            <circle cx="388" cy="136" r="34"/><line x1="422" y1="30" x2="422" y2="170"/>
+          </g>
+          <line x1="150" y1="38" x2="200" y2="38" stroke="#0E6E6B" stroke-width="11" stroke-linecap="round"/>
+          <circle cx="150" cy="38" r="13" fill="#0E6E6B"/>
+          <circle cx="200" cy="38" r="13" fill="#0E6E6B"/>
+        </svg>
+      </div>
+      <div class="karte night">
+        <svg viewBox="15 0 450 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wortmarke biind, Richtung Bindung, dunkle Variante">
+          <g stroke="#E8ECF0" stroke-width="18" stroke-linecap="round" fill="none">
+            <line x1="50" y1="30" x2="50" y2="170"/><circle cx="84" cy="136" r="34"/>
+            <line x1="150" y1="70" x2="150" y2="170"/>
+            <line x1="200" y1="70" x2="200" y2="170"/>
+            <line x1="250" y1="70" x2="250" y2="170"/><path d="M250,104 A34,34 0 0 1 318,104 L318,170"/>
+            <circle cx="388" cy="136" r="34"/><line x1="422" y1="30" x2="422" y2="170"/>
+          </g>
+          <line x1="150" y1="38" x2="200" y2="38" stroke="#4FB3AE" stroke-width="11" stroke-linecap="round"/>
+          <circle cx="150" cy="38" r="13" fill="#4FB3AE"/>
+          <circle cx="200" cy="38" r="13" fill="#4FB3AE"/>
+        </svg>
+      </div>
+    </div>
+    <div class="icons">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="App-Icon Bindung, Frost">
+        <rect width="120" height="120" fill="#F4F6F8"/>
+        <line x1="42" y1="60" x2="78" y2="60" stroke="#0E6E6B" stroke-width="11" stroke-linecap="round"/>
+        <circle cx="42" cy="60" r="14" fill="#1C2430"/>
+        <circle cx="78" cy="60" r="14" fill="#0E6E6B"/>
+      </svg>
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="App-Icon Bindung, Midnight">
+        <rect width="120" height="120" fill="#10151B"/>
+        <line x1="42" y1="60" x2="78" y2="60" stroke="#4FB3AE" stroke-width="11" stroke-linecap="round"/>
+        <circle cx="42" cy="60" r="14" fill="#E8ECF0"/>
+        <circle cx="78" cy="60" r="14" fill="#4FB3AE"/>
+      </svg>
+      <span class="label">Frost · Midnight — die zwei Knoten dürfen zweifarbig sein: zwei Macs, eine Bindung</span>
+    </div>
+    <div class="why">
+      <p><b>Dafür:</b> Sofort lesbar — „biind" bleibt biind, die Punkte tun ihren Job als i-Punkte UND als Erzählung. Das Hantel-Motiv skaliert vom 16-px-Menüleisten-Icon bis zum Splashscreen. Zweifarbigkeit (ein Knoten ink, einer accent) erzählt „zwei ungleiche Welten, verbunden".</p>
+      <p class="contra"><b>Dagegen:</b> Das wörtlichste ist selten das überraschendste — Hantel/Bindung gibt es als Motiv öfter (Molekül-Ästhetik). Die Typografie muss die Eigenständigkeit tragen.</p>
+    </div>
+  </section>
+
+  <!-- ================= RICHTUNG C ================= -->
+  <section>
+    <h2>C · Band<span class="tag">die physischste</span></h2>
+    <p class="sub">Ein Band legt sich um beide i-Stämme und bindet sie — wie eine Banderole um zwei Dokumente. Die Punkte bleiben frei darüber.</p>
+    <div class="marken">
+      <div class="karte frost">
+        <svg viewBox="15 0 450 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wortmarke biind, Richtung Band, helle Variante">
+          <g stroke="#1C2430" stroke-width="18" stroke-linecap="round" fill="none">
+            <line x1="50" y1="30" x2="50" y2="170"/><circle cx="84" cy="136" r="34"/>
+            <line x1="150" y1="70" x2="150" y2="170"/>
+            <line x1="200" y1="70" x2="200" y2="170"/>
+            <line x1="250" y1="70" x2="250" y2="170"/><path d="M250,104 A34,34 0 0 1 318,104 L318,170"/>
+            <circle cx="388" cy="136" r="34"/><line x1="422" y1="30" x2="422" y2="170"/>
+          </g>
+          <circle cx="150" cy="38" r="11.5" fill="#1C2430"/>
+          <circle cx="200" cy="38" r="11.5" fill="#1C2430"/>
+          <ellipse cx="175" cy="122" rx="54" ry="23" fill="none" stroke="#0E6E6B" stroke-width="10" transform="rotate(-12 175 122)"/>
+        </svg>
+      </div>
+      <div class="karte night">
+        <svg viewBox="15 0 450 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wortmarke biind, Richtung Band, dunkle Variante">
+          <g stroke="#E8ECF0" stroke-width="18" stroke-linecap="round" fill="none">
+            <line x1="50" y1="30" x2="50" y2="170"/><circle cx="84" cy="136" r="34"/>
+            <line x1="150" y1="70" x2="150" y2="170"/>
+            <line x1="200" y1="70" x2="200" y2="170"/>
+            <line x1="250" y1="70" x2="250" y2="170"/><path d="M250,104 A34,34 0 0 1 318,104 L318,170"/>
+            <circle cx="388" cy="136" r="34"/><line x1="422" y1="30" x2="422" y2="170"/>
+          </g>
+          <circle cx="150" cy="38" r="11.5" fill="#E8ECF0"/>
+          <circle cx="200" cy="38" r="11.5" fill="#E8ECF0"/>
+          <ellipse cx="175" cy="122" rx="54" ry="23" fill="none" stroke="#4FB3AE" stroke-width="10" transform="rotate(-12 175 122)"/>
+        </svg>
+      </div>
+    </div>
+    <div class="icons">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="App-Icon Band, Frost">
+        <rect width="120" height="120" fill="#F4F6F8"/>
+        <g stroke-linecap="round">
+          <line x1="48" y1="34" x2="48" y2="88" stroke="#1C2430" stroke-width="12"/>
+          <line x1="72" y1="34" x2="72" y2="88" stroke="#1C2430" stroke-width="12"/>
+          <ellipse cx="60" cy="64" rx="31" ry="15" fill="none" stroke="#0E6E6B" stroke-width="9" transform="rotate(-14 60 64)"/>
+        </g>
+      </svg>
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="App-Icon Band, Midnight">
+        <rect width="120" height="120" fill="#10151B"/>
+        <g stroke-linecap="round">
+          <line x1="48" y1="34" x2="48" y2="88" stroke="#E8ECF0" stroke-width="12"/>
+          <line x1="72" y1="34" x2="72" y2="88" stroke="#E8ECF0" stroke-width="12"/>
+          <ellipse cx="60" cy="64" rx="31" ry="15" fill="none" stroke="#4FB3AE" stroke-width="9" transform="rotate(-14 60 64)"/>
+        </g>
+      </svg>
+      <span class="label">Frost · Midnight</span>
+    </div>
+    <div class="why">
+      <p><b>Dafür:</b> Das haptischste Bild — man *sieht* das Binden. Die schräge Banderole gibt der ruhigen Monolinie eine Bewegung. Fürs Liquid-Glass-Icon (deine Kortschak-Ästhetik) ist ein umlaufendes Band ein dankbares 3D-Motiv.</p>
+      <p class="contra"><b>Dagegen:</b> Das Band durchschneidet die Wortmarke — bei kleinen Größen wird es unruhig. Braucht die meiste Feinarbeit, um nicht nach Paketschnur auszusehen.</p>
+    </div>
+  </section>
+
+  <div class="fazit">
+    <h2>Meine Empfehlung fürs Vergleichen</h2>
+    <p><b>B (Bindung)</b> ist der sicherste Kandidat: lesbar, skalierbar, erzählstark — und die Zweifarbigkeit der Knoten (zwei Macs!) gibt ihm eine eigene Idee. <b>A (Liaison)</b> ist die eleganteste, wenn du den Mut zum abstrakten Wortbild hast. <b>C (Band)</b> hat das größte Potenzial für ein spektakuläres Liquid-Glass-Icon, braucht aber die meiste Handarbeit.</p>
+    <p>Farbwelt ist hier bewusst dein bestehendes Petrol/Frost/Midnight-Umfeld — leicht austauschbar, falls deine Entwürfe eine andere Richtung aufmachen. Jetzt bin ich gespannt auf deine: Wir legen sie nebeneinander, nehmen das Beste aus beiden Welten, und dann bauen wir das Icon-Set über die macOSicons-API.</p>
+  </div>
+</div>
