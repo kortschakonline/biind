@@ -1,13 +1,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    private static let gesundheitID = "__gesundheit__"
+
     @State private var katalog = Katalog()
+    @State private var befunde: [Befund] = []
     @State private var auswahl: ProjektAkte.ID?
     @State private var suche = ""
 
     var body: some View {
         NavigationSplitView {
             List(selection: $auswahl) {
+                Section {
+                    Label("Gesundheit", systemImage: "stethoscope")
+                        .badge(befunde.count)
+                        .tag(Self.gesundheitID)
+                }
                 ForEach(gefilterteGruppen) { gruppe in
                     Section(gruppe.name) {
                         ForEach(gruppe.projekte) { projekt in
@@ -21,7 +29,9 @@ struct ContentView: View {
             .navigationTitle("Projekte")
             .navigationSplitViewColumnWidth(min: 230, ideal: 280)
         } detail: {
-            if let projekt = katalog.alleProjekte.first(where: { $0.id == auswahl }) {
+            if auswahl == Self.gesundheitID {
+                BefundeView(befunde: befunde)
+            } else if let projekt = katalog.alleProjekte.first(where: { $0.id == auswahl }) {
                 ProjektAkteView(projekt: projekt)
             } else {
                 ContentUnavailableView(
@@ -31,7 +41,13 @@ struct ContentView: View {
                 )
             }
         }
-        .task { katalog = KatalogBuilder().build() }
+        .task {
+            katalog = KatalogBuilder().build()
+            let fertigerKatalog = katalog
+            befunde = await Task.detached(priority: .utility) {
+                GesundheitsPruefer().pruefe(katalog: fertigerKatalog)
+            }.value
+        }
     }
 
     /// Sucht in Klarnamen, Aliassen und Ordnernamen — „portal" findet das
