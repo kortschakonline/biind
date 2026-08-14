@@ -1,0 +1,9 @@
+# Xcode / Build
+App/Atlas.xcodeproj/
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+
+# macOS
+.DS_Store

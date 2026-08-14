@@ -1,0 +1,24 @@
+name: Atlas
+options:
+  bundleIdPrefix: digital.jrn
+  createIntermediateGroups: true
+  deploymentTarget:
+    macOS: "26.0"
+targets:
+  Atlas:
+    type: application
+    platform: macOS
+    sources:
+      - Sources
+    settings:
+      base:
+        # Anzeigename = Arbeitstitel; nach der Namens-Entscheidung nur diese Zeile ändern
+        PRODUCT_NAME: Projekt-Atlas
+        PRODUCT_BUNDLE_IDENTIFIER: digital.jrn.atlas
+        MARKETING_VERSION: 0.1.0
+        CURRENT_PROJECT_VERSION: 1
+        SWIFT_VERSION: "6.0"
+        ENABLE_HARDENED_RUNTIME: YES
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.developer-tools
+        INFOPLIST_KEY_NSHumanReadableCopyright: "© 2026 JRN.digital"

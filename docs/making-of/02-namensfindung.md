@@ -1,0 +1,27 @@
+# 02 · Namensfindung
+
+**Datum:** 14.08.2026 · **Status: offen** — Jörn denkt weiter nach
+
+## Kriterien
+
+1. Funktioniert als Mac-App-Name: kurz, gut im Dock und in der Menüleiste
+2. Deutsch oder sprachneutral, passend zur Marke JRN.digital
+3. Erzählt die Kernidee — Überblick, Zuordnung, Navigation durch die Projektlandschaft
+4. Kein Konflikt mit bekannten Apps/Marken (finale Prüfung vor Fixierung!)
+5. Erst nach der Namens-Entscheidung: Logo → App-Icon (macOSicons-API)
+
+## Shortlist (Claude, erste Runde)
+
+| Name | Idee dahinter | Risiko |
+|---|---|---|
+| **Projektor** | Wortspiel Projekt + Projektor — „wirft alle Projekte an die Wand" | generisches Wort, Nähe zu Video-Apps |
+| **Kontor** | das historische Handelsbüro, die Schaltzentrale des Hauses | Kontor Records (Musik, andere Branche) |
+| **Lotse** | kennt jedes Fahrwasser und jeden Spitznamen — passt zum Quick-Switcher | eher Dienst als Ort; weniger „Übersicht" |
+| **Kataster** | das amtliche Verzeichnis, das Flächen ihren Eigentümern zuordnet — exakt die Kernidee (Ordner ↔ Identität) | klingt amtlich-trocken (kann aber Charme sein) |
+| **Atlas** | der Arbeitstitel; knüpft an die „Landkarte" (PROJEKTE.md) an | in Software sehr verbreitet (MongoDB Atlas u. a.) |
+
+## Zwischenstand
+
+Solange kein Name fixiert ist, läuft alles unter **Arbeitstitel „Projekt-Atlas"**
+(Xcode-Target: `Atlas`). Bundle-ID und Anzeigename sind bewusst leicht änderbar
+gehalten — die Umbenennung kostet später eine Zeile in `project.yml`.
