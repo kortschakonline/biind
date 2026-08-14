@@ -5,7 +5,7 @@ import Foundation
 /// Hinweis zum Nachschauen, kein Urteil.
 struct GesundheitsPruefer {
 
-    func pruefe(katalog: Katalog) -> [Befund] {
+    func pruefe(katalog: Katalog, projekteRoot: URL? = nil) -> [Befund] {
         let projekte = katalog.alleProjekte
         let alleOrdner = projekte.flatMap(\.ordner)
         var projektVon: [String: String] = [:]
@@ -24,7 +24,7 @@ struct GesundheitsPruefer {
         befunde += nodeModulesFunde(alleOrdner)
         befunde += ohneEintragInProjekteMd(katalog)
         befunde += fehlendeOrdner(projekte)
-        befunde += verwaisterClaudeSpeicher(alleOrdner)
+        befunde += verwaisterClaudeSpeicher(alleOrdner, projekteRoot: projekteRoot)
 
         return befunde.sorted {
             $0.schweregrad == $1.schweregrad
@@ -154,8 +154,8 @@ struct GesundheitsPruefer {
 
     /// Claude-Speicher, dem kein existierender Ordner mehr zuzuordnen ist —
     /// die sichtbar gemachte Folge des pfadgebundenen Gedächtnisses.
-    private func verwaisterClaudeSpeicher(_ alleOrdner: [ProjektOrdner]) -> [Befund] {
-        let scanner = OrdnerScanner()
+    private func verwaisterClaudeSpeicher(_ alleOrdner: [ProjektOrdner], projekteRoot: URL?) -> [Befund] {
+        let scanner = OrdnerScanner(root: projekteRoot)
         let fm = FileManager.default
         let heim = fm.homeDirectoryForCurrentUser
         let claudeRoot = heim.appendingPathComponent(".claude/projects")

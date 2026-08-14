@@ -62,15 +62,44 @@ struct ProjekteMdParser {
             .filter { $0.hasPrefix("~/") }
             .map(expandiere)
 
+        // Anmerkungen aus der Ordner-Zelle retten (2-spaltige Tabellen haben
+        // keine Details-Spalte; auch 4-spaltige tragen dort oft ⚠️-Notizen).
+        var details = detailsZelle?
+            .replacingOccurrences(of: "**", with: "")
+            .trimmingCharacters(in: .whitespaces) ?? ""
+        let anmerkungen = ordnerAnmerkungen(aus: ordnerZelle)
+        if !anmerkungen.isEmpty {
+            details = details.isEmpty ? anmerkungen : details + " · " + anmerkungen
+        }
+
         return ProjektIdentitaet(
             klarname: klarname,
             aliasse: aliasse(in: aliasZelle),
             gruppe: gruppe,
             ordnerPfade: pfade,
-            liveURL: liveURL(in: detailsZelle ?? ""),
-            gitRemote: gitRemote(in: detailsZelle ?? ""),
-            details: detailsZelle?.replacingOccurrences(of: "**", with: "")
+            liveURL: liveURL(in: details),
+            gitRemote: gitRemote(in: details),
+            details: details.isEmpty ? nil : details
         )
+    }
+
+    /// Alles aus der Ordner-Zelle außer den `~/…`-Pfaden selbst: Notizen,
+    /// Warnungen, Nicht-Pfad-Codespans (z. B. Git-Remotes) bleiben erhalten.
+    private func ordnerAnmerkungen(aus zelle: String) -> String {
+        let teile = zelle.components(separatedBy: "`")
+        var ergebnis = ""
+        for (index, teil) in teile.enumerated() {
+            if index.isMultiple(of: 2) {
+                ergebnis += teil
+            } else if !teil.hasPrefix("~/") {
+                ergebnis += "`\(teil)`"
+            }
+        }
+        let bereinigt = ergebnis
+            .replacingOccurrences(of: " + ", with: " ")
+            .replacingOccurrences(of: #"\s+"#, with: " ", options: .regularExpression)
+            .trimmingCharacters(in: CharacterSet(charactersIn: " ·+"))
+        return bereinigt == "—" ? "" : bereinigt
     }
 
     private func zelle(zu spaltenname: String, zellen: [String], spalten: [String]) -> String? {

@@ -5,8 +5,11 @@ import Foundation
 struct OrdnerScanner {
     private let fm = FileManager.default
 
-    var projekteRoot: URL {
-        fm.homeDirectoryForCurrentUser.appendingPathComponent("Projekte")
+    let projekteRoot: URL
+
+    init(root: URL? = nil) {
+        projekteRoot = root
+            ?? FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Projekte")
     }
 
     private var claudeProjectsRoot: URL {

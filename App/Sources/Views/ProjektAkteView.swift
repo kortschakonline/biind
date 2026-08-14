@@ -8,8 +8,12 @@ import AppKit
 struct ProjektAkteView: View {
     let projekt: ProjektAkte
 
+    @Environment(KatalogStore.self) private var store
     @State private var memories: [MemoryEintrag] = []
     @State private var sessions: [SessionEintrag] = []
+    @State private var zeigeBearbeiten = false
+    @State private var zeigeNeuesProjekt = false
+    @State private var zeigeZuordnen = false
 
     var body: some View {
         ScrollView {
@@ -33,6 +37,28 @@ struct ProjektAkteView: View {
             }
             .padding(24)
             .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .toolbar {
+            if projekt.atlasID != nil {
+                Button {
+                    zeigeBearbeiten = true
+                } label: {
+                    Label("Bearbeiten", systemImage: "pencil")
+                }
+                .help("Klarname, Aliasse, Gruppe und Notizen ändern")
+            }
+        }
+        .sheet(isPresented: $zeigeBearbeiten) {
+            ProjektBearbeitenSheet(projekt: projekt)
+        }
+        .sheet(isPresented: $zeigeNeuesProjekt) {
+            NeuesProjektSheet(
+                ordnerPfad: projekt.ordner.first?.url.path ?? "",
+                vorschlag: projekt.klarname
+            )
+        }
+        .sheet(isPresented: $zeigeZuordnen) {
+            OrdnerZuordnenSheet(ordnerPfad: projekt.ordner.first?.url.path ?? "")
         }
         .task(id: projekt.id) {
             let ordner = projekt.ordner
@@ -73,13 +99,22 @@ struct ProjektAkteView: View {
                     .foregroundStyle(.secondary)
             }
             if !projekt.ordner.isEmpty {
-                Button {
-                    claudeWeiterarbeiten()
-                } label: {
-                    Label("Mit Claude weiterarbeiten", systemImage: "sparkles")
+                HStack(spacing: 10) {
+                    Button {
+                        claudeWeiterarbeiten()
+                    } label: {
+                        Label("Mit Claude weiterarbeiten", systemImage: "sparkles")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .help("Öffnet ein Terminal im Projektordner und startet Claude Code")
+
+                    if projekt.atlasID == nil {
+                        Button("Als Projekt aufnehmen …") { zeigeNeuesProjekt = true }
+                            .help("Legt einen Eintrag in atlas.json/PROJEKTE.md an")
+                        Button("Projekt zuordnen …") { zeigeZuordnen = true }
+                            .help("Hängt den Ordner an ein bestehendes Projekt")
+                    }
                 }
-                .buttonStyle(.borderedProminent)
-                .help("Öffnet ein Terminal im Projektordner und startet Claude Code")
                 .padding(.top, 6)
             }
         }

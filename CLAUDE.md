@@ -44,10 +44,15 @@ cd App && xcodegen generate && xcodebuild -project Atlas.xcodeproj -scheme Atlas
   Schritt gestalten (Richtungen, Varianten, Entscheidung) und im Making-Of dokumentieren.
 - UI-Sprache Deutsch, Code/Bezeichner Englisch mit deutschen Domänenbegriffen wo sinnvoll.
 - Kein App Sandbox (App liest `~/Projekte` + `~/.claude` direkt; kein App-Store-Ziel).
-- Datenhaltung später: `atlas.json` im gesyncten Projekte-Ordner; `PROJEKTE.md` wird generiert.
+- **Datenhaltung (seit V2 aktiv):** `~/Projekte/.atlas/atlas.json` ist die Quelle;
+  `PROJEKTE.md` wird von der App generiert (Generator-Marker in Zeile 1, Original-Backup
+  in `.atlas/PROJEKTE-original-backup.md`). Projektdaten NICHT mehr von Hand in
+  PROJEKTE.md editieren — in der App ändern (oder atlas.json bearbeiten und App neu starten).
+  Pfade dort als Tokens (`$PROJEKTE/…`, `$HEIM/…`), aufgelöst pro Maschine.
 - Roadmap: V1 read-only Kartei → V2 Verwalten/Heilen → V3 Quick-Switcher/MCP (Details im Konzept).
-- **Stand 14.08.2026 (spät):** Kapitel 00–07 fertig: Skelett, PROJEKTE.md-Import,
-  Claude-Layer, Gesundheits-Checks (32 Befunde beim ersten Lauf), Quick-Switcher
-  (⌥ Leertaste, Carbon-Hotkey, KatalogStore geteilt, MenuBarExtra). Offen:
-  Name/Logo/Icon (wartet auf Jörn), danach V2 (atlas.json, PROJEKTE.md-Export,
-  Maschinen-Profile, geführtes Aufräumen).
+- **Stand 14.08.2026 (spät):** Kapitel 00–08 fertig. V1 komplett (Kartei,
+  Claude-Layer, Gesundheits-Checks, Quick-Switcher ⌥Leertaste) und V2-Kern aktiv:
+  atlas.json als Quelle (migriert, 38 Projekte), PROJEKTE.md wird generiert,
+  Maschinen-Profile, Bearbeiten/Aufnehmen/Zuordnen-Sheets. Offen: Name/Logo/Icon
+  (wartet auf Jörn), Backlog: FSEvents-Watcher, Memory-Zusammenführung,
+  geführtes Aufräumen, echtes Konflikt-Merging, GitHub-Veröffentlichung.

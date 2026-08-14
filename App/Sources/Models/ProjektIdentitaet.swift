@@ -10,6 +10,8 @@ struct ProjektIdentitaet: Hashable {
     let liveURL: String?
     let gitRemote: String?
     let details: String?
+    /// Verweis in die atlas.json — nil bei geparsten (Migrations-)Identitäten.
+    var atlasID: UUID? = nil
 
     var id: String { gruppe + "/" + klarname }
 }
@@ -18,6 +20,7 @@ struct ProjektIdentitaet: Hashable {
 /// die die UI anzeigt.
 struct ProjektAkte: Identifiable, Hashable {
     let id: String
+    let atlasID: UUID?
     let klarname: String
     let aliasse: [String]
     let gruppe: String

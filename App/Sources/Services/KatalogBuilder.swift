@@ -1,19 +1,15 @@
 import Foundation
 
-/// Verheiratet die beiden Wahrheiten: die Identitäten aus PROJEKTE.md und die
-/// real gescannten Ordner. Ordner ohne Eintrag landen in „Nicht zugeordnet" —
-/// die Vorstufe der späteren Gesundheits-Checks.
+/// Verheiratet die beiden Wahrheiten: die Projekt-Identitäten (aus atlas.json,
+/// bei der Migration einmalig aus PROJEKTE.md) und die real gescannten Ordner.
+/// Ordner ohne Eintrag landen in „Nicht zugeordnet".
 struct KatalogBuilder {
     private let fm = FileManager.default
-    private let scanner = OrdnerScanner()
-    private let parser = ProjekteMdParser()
 
-    func build() -> Katalog {
+    func build(identitaeten: [ProjektIdentitaet], root: URL) -> Katalog {
+        let scanner = OrdnerScanner(root: root)
         let gescannt = scanner.scan()
         var freieOrdner = Dictionary(uniqueKeysWithValues: gescannt.map { ($0.url.path, $0) })
-        let identitaeten = parser.parse(
-            datei: scanner.projekteRoot.appendingPathComponent("PROJEKTE.md")
-        )
 
         var gruppen: [Katalog.Gruppe] = []
 
@@ -25,7 +21,7 @@ struct KatalogBuilder {
                 if let ordner = freieOrdner.removeValue(forKey: pfad) {
                     gefunden.append(ordner)
                 } else if istOrdner(pfad) {
-                    // liegt außerhalb von ~/Projekte (z. B. ~/Kunden 2026) → einzeln erfassen
+                    // liegt außerhalb des Projekte-Roots (z. B. ~/Kunden 2026)
                     gefunden.append(scanner.einzelOrdner(bei: URL(fileURLWithPath: pfad)))
                 } else {
                     fehlend.append(pfad)
@@ -33,7 +29,8 @@ struct KatalogBuilder {
             }
 
             let akte = ProjektAkte(
-                id: identitaet.id,
+                id: identitaet.atlasID?.uuidString ?? identitaet.id,
+                atlasID: identitaet.atlasID,
                 klarname: identitaet.klarname,
                 aliasse: identitaet.aliasse,
                 gruppe: identitaet.gruppe,
@@ -56,6 +53,7 @@ struct KatalogBuilder {
             gruppen.append(.init(name: "Nicht zugeordnet", projekte: rest.map { ordner in
                 ProjektAkte(
                     id: "frei/" + ordner.name,
+                    atlasID: nil,
                     klarname: ordner.name,
                     aliasse: [],
                     gruppe: "Nicht zugeordnet",
