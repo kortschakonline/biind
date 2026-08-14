@@ -32,9 +32,33 @@ bestehenden Petrol/Frost/Midnight-Umfeld gehalten, leicht austauschbar.
 Claudes Empfehlung: **B** als sicherster Kandidat, A als mutigste, C als
 spektakulärste Option.
 
+## Jörns Runde 1 & der Vergleich (15.08.2026, nachts)
+
+Zwei Entwürfe von Jörn (Illustrator, siehe [`img/`](../../img/)):
+
+1. **„Fusion"** — biind klein, Monolinie; die beiden i in Cyan, im Icon fließen
+   beide Stämme unten in einen U-Bogen zusammen, die zwei verschieden großen
+   Punkte schweben frei darüber.
+2. **„Kacheln"** — BIND in dünnen Versalien, zwei überlappende Orange-Kacheln
+   als i-Punkt bzw. Icon.
+
+**Vergleichs-Ergebnis:** Entwurf 1 gewinnt — auch gegen alle drei
+Claude-Richtungen. Begründung: Bei Liaison/Bindung/Band wird die Verbindung
+*dazugelegt* (Bogen, Linie, Band); bei der Fusion ist sie **strukturell** —
+die zwei i teilen sich einen Strich und werden ein Zeichen. Die zwei ungleichen
+Punkte erzählen „zwei Welten" ganz ohne Konstruktion. Entwurf 2 verworfen:
+verliert das Doppel-i (liest BIND), Versalien wirken korporativ, Kachel-Motiv
+erzählt „App-Verwaltung" statt „binden".
+
+**Verfeinerungspunkte für Runde 2 (Synthese):**
+- Wortmarke soll können, was das Icon schon kann: *beide* i-Stämme unter der
+  Baseline zum U verbinden (sonst Lesegefahr „bijnd")
+- Gradient → Solid; Kontrast auf Weiß; Frost/Midnight-Varianten
+- Größentest 16/32/128/1024 px (Menüleiste bis App-Icon)
+
 ## Nächste Schritte
 
-1. Jörns Entwürfe daneben legen, vergleichen, kombinieren
-2. Sieger-Richtung ausarbeiten (Feinform, Farben, Größentests 16 px – 1024 px)
-3. App-Icon-Set über die macOSicons-API produzieren (Frost/Midnight-Varianten
-   wie bei den Kortschak-Icons), Wortmarke in App/README/GitHub einsetzen
+1. Runde 2: Synthese ausarbeiten (Jörns Fusion + handwerkliche Schicht)
+2. Feinform & Farben festziehen, Größentests
+3. App-Icon-Set über die macOSicons-API produzieren (Frost/Midnight),
+   Wortmarke in App/README/GitHub einsetzen
