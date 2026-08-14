@@ -20,6 +20,15 @@
 | **Kataster** | das amtliche Verzeichnis, das Flächen ihren Eigentümern zuordnet — exakt die Kernidee (Ordner ↔ Identität) | klingt amtlich-trocken (kann aber Charme sein) |
 | **Atlas** | der Arbeitstitel; knüpft an die „Landkarte" (PROJEKTE.md) an | in Software sehr verbreitet (MongoDB Atlas u. a.) |
 
+## Kandidaten von Jörn (in Prüfung)
+
+| Name | Stärken | Schwächen (Recherche 15.08.2026) |
+|---|---|---|
+| **Orbito** | passt in die scano-Familie (zweisilbig, -o, freundlich), eindeutige Aussprache DE/EN, starke Bildwelt (Projekte im Orbit → Logo-Potenzial) | „Orbito" existiert bereits im Mac App Store (Brettspiel-Umsetzung); Orbit-Metapher im Mac-Utility-Raum überlaufen (Orbit, Orbital, OrbitRing, Expo Orbit — teils Launcher, unser Quick-Switcher-Terrain) |
+
+Abgeleiteter Funke aus der Orbito-Diskussion: **„karto"** — die Landkarte, im
+scano-Stil. Noch ungeprüft.
+
 ## Verworfen
 
 | Name | Idee | Warum verworfen (15.08.2026) |
