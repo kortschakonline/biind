@@ -32,9 +32,27 @@ final class KatalogStore {
         geladen = true
         atlas = verwaltung.ladeOderMigriere()
         zuletztGeschrieben = try? Data(contentsOf: verwaltung.atlasURL)
+        konfliktKopienEinarbeiten()
         neuAufbauen()
         starteWatcher()
         await checksAktualisieren()
+    }
+
+    /// MEGA legt bei gleichzeitigen Änderungen Duplikate an („atlas (1).json") —
+    /// die werden verschmolzen und ins konflikt-archiv verschoben, nie gelöscht.
+    private func konfliktKopienEinarbeiten() {
+        let kopien = verwaltung.findeKonfliktKopien()
+        guard !kopien.isEmpty else { return }
+        let merger = AtlasMerger()
+        for kopie in kopien {
+            if let daten = try? Data(contentsOf: kopie),
+               let extern = verwaltung.dekodiere(daten) {
+                atlas = merger.merge(mein: atlas, extern: extern)
+            }
+            verwaltung.archiviereKonfliktKopie(kopie)
+        }
+        verwaltung.speichern(atlas)
+        zuletztGeschrieben = try? Data(contentsOf: verwaltung.atlasURL)
     }
 
     // MARK: - Dateisystem-Watcher
@@ -68,12 +86,23 @@ final class KatalogStore {
     }
 
     private func aussenAktualisieren() async {
-        // atlas.json extern geändert (Sync vom anderen Mac)? Dann übernehmen.
+        konfliktKopienEinarbeiten()
+        // atlas.json extern geändert (Sync vom anderen Mac)? Dann verschmelzen
+        // statt ersetzen: Union per Projekt, jüngerer Zeitstempel gewinnt.
         if let daten = try? Data(contentsOf: verwaltung.atlasURL),
            daten != zuletztGeschrieben,
            let extern = verwaltung.dekodiere(daten) {
-            atlas = extern
-            zuletztGeschrieben = daten
+            let merger = AtlasMerger()
+            let verschmolzen = merger.merge(mein: atlas, extern: extern)
+            atlas = verschmolzen
+            if merger.sindGleich(verschmolzen, extern) {
+                // extern ist bereits der kanonische Stand — nichts zurückschreiben
+                zuletztGeschrieben = daten
+            } else {
+                // wir haben etwas beizutragen — Union zurück in den Sync
+                verwaltung.speichern(verschmolzen)
+                zuletztGeschrieben = try? Data(contentsOf: verwaltung.atlasURL)
+            }
         }
 
         let vorher = unzugeordnetePfade()

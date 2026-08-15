@@ -66,4 +66,7 @@ cd App && xcodegen generate && xcodebuild -project Atlas.xcodeproj -scheme Atlas
   Logo final (Unterlänge, #21B6C8/#3AD0DE/#EE9F3C, Master in design/), App-Icon
   via macOSicons-API im Bundle. **Öffentlich auf GitHub: kortschakonline/biind**
   (MIT, deutsches README mit Wortmarke, Kapitel 13) — bei Meilensteinen committen
-  UND pushen. Backlog: Konflikt-Merging, Liquid-Glass-.icon (optional).
+  UND pushen. Konflikt-Merging aktiv (Kapitel 14: AtlasMerger, Union per Projekt,
+  kanonische Reihenfolge gegen Sync-Ping-Pong, Konfliktkopien → konflikt-archiv).
+  **Backlog leer** — offen nur Kür: Liquid-Glass-.icon, Feld-Merging, Tombstones
+  falls je eine Lösch-Funktion kommt.

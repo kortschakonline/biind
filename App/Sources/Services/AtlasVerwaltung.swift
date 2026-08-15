@@ -293,6 +293,32 @@ struct AtlasVerwaltung {
         try? decoder.decode(AtlasDatei.self, from: daten)
     }
 
+    // MARK: - Konfliktkopien (MEGA legt bei Gleichzeitigkeit Duplikate an)
+
+    /// Findet fremde .json-Dateien neben der atlas.json — typischerweise
+    /// Sync-Konfliktkopien („atlas (1).json" u. ä.).
+    func findeKonfliktKopien(in verzeichnis: URL? = nil) -> [URL] {
+        let ordner = verzeichnis ?? atlasVerzeichnis
+        let eintraege = (try? FileManager.default.contentsOfDirectory(
+            at: ordner, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles]
+        )) ?? []
+        return eintraege
+            .filter { $0.pathExtension == "json" && $0.lastPathComponent != "atlas.json" }
+            .sorted { $0.lastPathComponent < $1.lastPathComponent }
+    }
+
+    /// Verschieben statt löschen: Eingearbeitete Konfliktkopien wandern ins
+    /// Archiv-Unterverzeichnis, mit Zeitstempel gegen Namenskollisionen.
+    func archiviereKonfliktKopie(_ url: URL, in verzeichnis: URL? = nil) {
+        let ordner = (verzeichnis ?? atlasVerzeichnis).appendingPathComponent("konflikt-archiv")
+        try? FileManager.default.createDirectory(at: ordner, withIntermediateDirectories: true)
+        let stempel = ISO8601DateFormatter().string(from: Date()).replacingOccurrences(of: ":", with: "-")
+        let ziel = ordner.appendingPathComponent(
+            url.deletingPathExtension().lastPathComponent + "-" + stempel + ".json"
+        )
+        try? FileManager.default.moveItem(at: url, to: ziel)
+    }
+
     // MARK: - Kleinteile
 
     private var encoder: JSONEncoder {
