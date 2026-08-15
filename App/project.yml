@@ -21,7 +21,7 @@ targets:
         # (Projekt/Target/Typen), wie bei Apple-Projekten üblich.
         PRODUCT_NAME: biind
         PRODUCT_BUNDLE_IDENTIFIER: digital.jrn.biind
-        MARKETING_VERSION: 0.1.0
+        MARKETING_VERSION: 1.0.0
         CURRENT_PROJECT_VERSION: 1
         SWIFT_VERSION: "6.0"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
