@@ -1,53 +1,79 @@
 {
-  "fill" : {
-    "solid" : "extended-srgb:0.13725,0.15686,0.17647,1.00000"
+  "fill": {
+    "solid": "extended-srgb:0.13725,0.15686,0.17647,1.00000"
   },
-  "groups" : [
+  "groups": [
     {
-      "layers" : [
+      "layers": [
         {
-          "glass-specializations" : [
+          "glass-specializations": [
             {
-              "value" : true
+              "value": true
             },
             {
-              "appearance" : "light",
-              "value" : true
+              "appearance": "light",
+              "value": true
             },
             {
-              "idiom" : "square",
-              "value" : true
+              "idiom": "square",
+              "value": true
             }
           ],
-          "hidden" : false,
-          "image-name" : "ii.svg",
-          "name" : "biind ii",
-          "opacity" : 1,
-          "position" : {
-            "scale" : 1,
-            "translation-in-points" : [
+          "hidden": false,
+          "image-name": "ii-cyan.svg",
+          "name": "i cyan (mit U-Bogen, vorne)",
+          "opacity": 1,
+          "position": {
+            "scale": 1,
+            "translation-in-points": [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "glass-specializations": [
+            {
+              "value": true
+            },
+            {
+              "appearance": "light",
+              "value": true
+            },
+            {
+              "idiom": "square",
+              "value": true
+            }
+          ],
+          "hidden": false,
+          "image-name": "ii-orange.svg",
+          "name": "i orange (hinten)",
+          "opacity": 1,
+          "position": {
+            "scale": 1,
+            "translation-in-points": [
               0,
               0
             ]
           }
         }
       ],
-      "name" : "ii",
-      "shadow" : {
-        "kind" : "neutral",
-        "opacity" : 0.4
+      "name": "ii",
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.4
       },
-      "specular" : true,
-      "translucency" : {
-        "enabled" : true,
-        "value" : 0.5
+      "specular": true,
+      "translucency": {
+        "enabled": true,
+        "value": 0.5
       }
     }
   ],
-  "supported-platforms" : {
-    "circles" : [
+  "supported-platforms": {
+    "circles": [
       "watchOS"
     ],
-    "squares" : "shared"
+    "squares": "shared"
   }
 }

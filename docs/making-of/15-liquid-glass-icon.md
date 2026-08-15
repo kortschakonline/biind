@@ -36,12 +36,21 @@ in Kapitel 12).
 
 ## Entscheidungen
 
-- **Eine Glass-Ebene statt zwei:** Cyan- und Orange-Pfade liegen in einer
-  Ebene mit ihren SVG-Farben — die Z-Ordnung innerhalb der Ebene ist damit
-  garantiert die des Originals. Getrennte Ebenen pro Farbe (mehr Tiefen-Effekt)
-  sind Jörns Spielwiese im Icon Composer, wo man das Ergebnis live sieht.
 - **Beide Icon-Generationen im Bundle:** `.icon` für macOS 26+, Asset-Katalog
   für alles davor — kostet nichts und nimmt niemandem das Icon.
+
+## Nachtrag: Die Ebenen-Teilung (und ihre Grenzen der Fernprüfung)
+
+Auf Jörns Wunsch wurden Cyan-i und Orange-i auf **getrennte Glass-Ebenen**
+gelegt (`ii-cyan.svg` vorne, `ii-orange.svg` hinten) — das gibt dem Icon
+echten Tiefen-Parallax zwischen den beiden i. Beim Verifizieren zeigte sich
+eine Grenze der Kommandozeilen-Prüfung: Das vom Build erzeugte `AppIcon.icns`
+stammt aus dem Asset-Katalog-**Fallback**, nicht aus dem `.icon` — ein
+Versteck-Test (Orange-Ebene `hidden`, Orange blieb im .icns sichtbar) hat das
+sauber bewiesen. Der echte Glass-Render mit Ebenen-Tiefe ist nur im Icon
+Composer bzw. im Dock von macOS 26 sichtbar — die finale Sichtprüfung der
+Z-Ordnung (Cyan-U muss vor dem Orange-Stamm liegen) machte Jörn im offenen
+Icon Composer.
 
 ## Ergebnis
 
