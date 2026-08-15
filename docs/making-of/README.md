@@ -36,3 +36,4 @@
 | 13 | [GitHub-Veröffentlichung](13-github-veroeffentlichung.md) | ✅ |
 | 14 | [Konflikt-Merging](14-konflikt-merging.md) | ✅ |
 | 15 | [Liquid-Glass-Icon](15-liquid-glass-icon.md) | ✅ |
+| 16 | [Release: biind 1.0.0](16-release.md) | ✅ 🎉 |
