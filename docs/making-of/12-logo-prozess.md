@@ -1,6 +1,6 @@
 # 12 · Logo-Prozess: Zwei i, verbunden
 
-**Datum:** 15.08.2026 · **Status: 🔄 Runde 1 — Vergleich steht aus**
+**Datum:** 15.08.2026 · **Status: ✅ final — Logo & App-Icon fertig**
 
 ## Ausgangslage
 
@@ -74,9 +74,28 @@ Lesbarkeit. Sie ist ab jetzt Muss-Regel der Marke. (Gefunden, weil die erste
 Rekonstruktion die Diagonale abgeflacht hatte und prompt „bünd" las —
 Verifikation am gerenderten Bild, wieder einmal.)
 
+## Finale & Icon-Produktion (15.08.2026)
+
+Jörns Entscheidungen: **deutliche Unterlänge** (unverwechselbare Silhouette)
+und die **nachgeschärften Farbtöne** (#21B6C8 hell / #3AD0DE dunkel / #EE9F3C).
+
+Produktionsstraße:
+
+1. **Master-SVGs** in [`design/`](../../design/): Wortmarke (hell/dunkel,
+   inkl. Diagonale-Regel als Kommentar im SVG) und Icon-Artworks 1024×1024
+   (Midnight + Frost)
+2. **Rasterung** mit `rsvg-convert` (librsvg)
+3. **macOSicons-API** (`/editor/mask`): Squircle-Maske + Schatten für beide
+   Varianten, dazu die Dock-Preview — der Moment, in dem das Logo zum ersten
+   Mal „echt" aussah: ![biind im Dock](../assets/biind-dock-preview.png)
+4. **AppIcon.appiconset** (alle macOS-Größen 16–1024 via `sips`) in
+   `Assets.xcassets`, eine Zeile `ASSETCATALOG_COMPILER_APPICON_NAME` in der
+   project.yml — **biind läuft jetzt mit eigenem Icon im Dock.**
+
+Die Frost-Variante liegt produziert bereit (`design/icon/biind-frost-masked.png`)
+— als Alternativ-Icon oder für helle Kontexte.
+
 ## Nächste Schritte
 
-1. Jörns Entscheidungen: Unterlänge oder Grundlinie? Farbtöne so ok?
-2. Feinform in Illustrator finalisieren (Diagonale als Regel)
-3. App-Icon-Set über die macOSicons-API produzieren (Frost/Midnight),
-   Wortmarke in App/README/GitHub einsetzen
+Wortmarke ins künftige GitHub-README; optional später: Liquid-Glass-`.icon`-Bundle
+(Icon Composer) wie bei den Kortschak-Icons.

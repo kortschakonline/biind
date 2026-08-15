@@ -32,6 +32,5 @@
 | 09 | [Memory-Zusammenführung](09-memory-zusammenfuehrung.md) | ✅ |
 | 10 | [FSEvents-Watcher](10-fsevents-watcher.md) | ✅ |
 | 11 | [Geführtes Aufräumen](11-gefuehrtes-aufraeumen.md) | ✅ |
-| 12 | [Logo-Prozess: Zwei i, verbunden](12-logo-prozess.md) | 🔄 Runde 1 |
-| — | App-Icon (macOSicons-API) | nach der Logo-Entscheidung |
+| 12 | [Logo-Prozess: Zwei i, verbunden](12-logo-prozess.md) | ✅ Logo + Icon fertig |
 | — | Erste lauffähige Version | geplant |

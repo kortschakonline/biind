@@ -1,0 +1,12 @@
+<svg viewBox="15 0 450 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="biind Wortmarke, dunkle Variante">
+  <!-- biind Wortmarke · Variante: deutliche Unterlänge · Farben: Midnight -->
+  <g stroke="#E8ECF0" stroke-width="18" stroke-linecap="round" fill="none">
+    <line x1="50" y1="30" x2="50" y2="170"/><circle cx="84" cy="136" r="34"/>
+    <line x1="250" y1="70" x2="250" y2="170"/><path d="M250,104 A34,34 0 0 1 318,104 L318,170"/>
+    <circle cx="388" cy="136" r="34"/><line x1="422" y1="30" x2="422" y2="170"/>
+  </g>
+  <path d="M150,56 L150,182 A22,22 0 0 0 194,182 L194,150" stroke="#3AD0DE" stroke-width="18" stroke-linecap="round" fill="none"/>
+  <circle cx="150" cy="30" r="13.5" fill="#3AD0DE"/>
+  <line x1="194" y1="92" x2="194" y2="154" stroke="#EE9F3C" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="194" cy="64" r="11" fill="#EE9F3C"/>
+</svg>
