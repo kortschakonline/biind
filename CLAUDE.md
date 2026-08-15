@@ -63,6 +63,7 @@ cd App && xcodegen generate && xcodebuild -project Atlas.xcodeproj -scheme Atlas
   einzeln bestätigt). Name: **biind** (Kapitel 02). Logo: Runde 2 fertig —
   Jörns Fusion-Entwurf hat gewonnen, SVG-Rekonstruktion auf der Vergleichsseite
   (Kapitel 12; Punkt-Diagonale = Muss-Regel gegen die ü-Lesart!). **Als Nächstes:**
-  Jörn entscheidet Unterlänge-vs-Grundlinie + Farbtöne → Feinform → Icon-Set via
-  macOSicons-API → Icon ins Bundle. Backlog danach: Konflikt-Merging,
-  GitHub-Veröffentlichung (Lizenz, README mit Wortmarke, Remote).
+  Logo final (Unterlänge, #21B6C8/#3AD0DE/#EE9F3C, Master in design/), App-Icon
+  via macOSicons-API im Bundle. **Öffentlich auf GitHub: kortschakonline/biind**
+  (MIT, deutsches README mit Wortmarke, Kapitel 13) — bei Meilensteinen committen
+  UND pushen. Backlog: Konflikt-Merging, Liquid-Glass-.icon (optional).

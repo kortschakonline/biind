@@ -33,4 +33,4 @@
 | 10 | [FSEvents-Watcher](10-fsevents-watcher.md) | ✅ |
 | 11 | [Geführtes Aufräumen](11-gefuehrtes-aufraeumen.md) | ✅ |
 | 12 | [Logo-Prozess: Zwei i, verbunden](12-logo-prozess.md) | ✅ Logo + Icon fertig |
-| — | Erste lauffähige Version | geplant |
+| 13 | [GitHub-Veröffentlichung](13-github-veroeffentlichung.md) | ✅ |
