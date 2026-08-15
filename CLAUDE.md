@@ -60,5 +60,9 @@ cd App && xcodegen generate && xcodebuild -project Atlas.xcodeproj -scheme Atlas
   externe atlas.json-Syncs live übernommen), geführtes Aufräumen (Duplikat →
   _Archiv, Leer-Ordner → Papierkorb, Ohne-Eintrag → Aufnehmen/Zuordnen,
   Token-Remote → SSH-Umstellung mit Backup; nie endgültig löschen, immer
-  einzeln bestätigt). Offen: Name/Logo/Icon (Jörn arbeitet parallel dran),
-  Backlog: echtes Konflikt-Merging, GitHub-Veröffentlichung.
+  einzeln bestätigt). Name: **biind** (Kapitel 02). Logo: Runde 2 fertig —
+  Jörns Fusion-Entwurf hat gewonnen, SVG-Rekonstruktion auf der Vergleichsseite
+  (Kapitel 12; Punkt-Diagonale = Muss-Regel gegen die ü-Lesart!). **Als Nächstes:**
+  Jörn entscheidet Unterlänge-vs-Grundlinie + Farbtöne → Feinform → Icon-Set via
+  macOSicons-API → Icon ins Bundle. Backlog danach: Konflikt-Merging,
+  GitHub-Veröffentlichung (Lizenz, README mit Wortmarke, Remote).
