@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="biind Icon-Artwork Midnight">
-  <!-- Vollflächiges Artwork (klassisches Icon / API-Maske). Motiv: Jörns
-       Original-Pfade. Für Liquid Glass siehe design/icon/AppIcon.icon. -->
-  <rect width="1024" height="1024" fill="#23282D"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="biind ii-Motiv">
+  <!-- Das ii-Motiv, unverändert aus Jörns Original (Logo/SVG/Element 1.svg)
+       extrahiert — exakte Pfade und Farben, zentriert auf 1024er-Canvas.
+       Z-Ordnung wie im Original: Orange unten, Cyan (mit U-Bogen) oben. -->
   <g transform="translate(-7.66,147.34) scale(1.577)">
     <path fill="#f7931e" d="M355.24,197.26h47.09v193.13h-47.09v-193.13Z"/>
     <path fill="#f7931e" d="M344.97,141.21c0-19.22,14.58-33.81,33.81-33.81s33.81,14.58,33.81,33.81-14.58,33.81-33.81,33.81-33.81-14.58-33.81-33.81Z"/>

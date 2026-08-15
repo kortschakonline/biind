@@ -35,3 +35,4 @@
 | 12 | [Logo-Prozess: Zwei i, verbunden](12-logo-prozess.md) | ✅ Logo + Icon fertig |
 | 13 | [GitHub-Veröffentlichung](13-github-veroeffentlichung.md) | ✅ |
 | 14 | [Konflikt-Merging](14-konflikt-merging.md) | ✅ |
+| 15 | [Liquid-Glass-Icon](15-liquid-glass-icon.md) | ✅ |

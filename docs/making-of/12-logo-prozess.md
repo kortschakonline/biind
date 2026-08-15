@@ -2,6 +2,16 @@
 
 **Datum:** 15.08.2026 · **Status: ✅ final — Logo & App-Icon fertig**
 
+> **Nachtrag/Korrektur (15.08., vormittags):** Die „finale" Fassung dieses
+> Kapitels basierte auf Claudes SVG-*Rekonstruktion* — abgemacht war aber,
+> dass Jörns Original der Master ist und nur der ii-Bogen verfeinert wird.
+> Jörn hat seine Illustrator-Datei geliefert ([`Logo/`](../../Logo/), Export
+> `Logo/SVG/Element 1.svg`), sie ist jetzt der Master in `design/`: echte
+> Letterformen statt konstruierter Primitive, finale Farben **#00E6E9 (Cyan)
+> und #F7931E (Orange)** — Jörns eigene Töne, nicht die „nachgeschärften" aus
+> der Rekonstruktion. Die Rekonstruktion bleibt als Prozess-Werkzeug in der
+> Geschichte (sie fand die ü-Falle), aber das Logo ist seins.
+
 ## Ausgangslage
 
 Der Name steht (Kapitel 02: **biind**), und er liefert die Leitidee gleich mit:

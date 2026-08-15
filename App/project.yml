@@ -10,6 +10,11 @@ targets:
     platform: macOS
     sources:
       - Sources
+      # Liquid-Glass-Icon (macOS 26): als Ganzes referenziert, actool kompiliert es;
+      # das klassische AppIcon im Asset-Katalog bleibt als Fallback
+      - path: AppIcon.icon
+        type: folder
+        buildPhase: resources
     settings:
       base:
         # Offizieller Name seit 15.08.2026: biind — „Atlas" bleibt interner Codename
