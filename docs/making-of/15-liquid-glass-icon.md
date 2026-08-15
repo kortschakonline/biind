@@ -52,6 +52,10 @@ Composer bzw. im Dock von macOS 26 sichtbar — die finale Sichtprüfung der
 Z-Ordnung (Cyan-U muss vor dem Orange-Stamm liegen) machte Jörn im offenen
 Icon Composer.
 
+**Sichtprüfung bestanden** (Jörn, 15.08.2026): „passt perfekt, die Ebenen
+sitzen." — Damit ist der Design-Prozess von der Leitidee bis zum
+Liquid-Glass-Icon abgeschlossen.
+
 ## Ergebnis
 
 biind trägt Liquid Glass im Dock, das Motiv ist pixelgenau Jörns Entwurf,
