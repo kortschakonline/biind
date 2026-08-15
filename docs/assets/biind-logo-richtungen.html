@@ -82,6 +82,17 @@
   .why p b { font-weight: 650; }
   .why .contra { color: var(--muted); }
 
+  .groessen { display: flex; align-items: flex-end; gap: 22px; margin-top: 14px; flex-wrap: wrap; }
+  .groessen figure { margin: 0; text-align: center; }
+  .groessen svg { display: block; border-radius: 22%; }
+  .groessen figcaption { font-size: 11px; color: var(--muted); margin-top: 5px; }
+  .runde2 {
+    border: 2px solid var(--accent); border-radius: 16px;
+    padding: 24px 26px; margin-top: 48px;
+    background: var(--surface);
+  }
+  .runde2 h2 { margin-top: 0; }
+
   .fazit {
     margin-top: 72px; padding: 22px 24px;
     background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
@@ -93,13 +104,148 @@
 
 <div class="wrap">
   <header>
-    <p class="eyebrow">Design-Prozess · Runde 1 · Claude-Vorschläge zum Vergleich</p>
-    <h1>biind — drei Logo-Richtungen</h1>
-    <p class="lede">Alle drei bauen auf derselben Leitidee: <b>Das Doppel-i ist das Logo.</b> Zwei gleiche Zeichen — zwei Macs, zwei Welten (Ordner ↔ Identität) — und dazwischen die Verbindung, die biind herstellt. Die Wortmarke ist bewusst konstruiert (Monolinie aus Kreisen und Stämmen), nicht gesetzt — sie kann später jede Schrift werden, die Geste bleibt.</p>
+    <p class="eyebrow">Design-Prozess · Runde 2 · Die Fusion führt</p>
+    <h1>biind — der Logo-Prozess</h1>
+    <p class="lede">Die Leitidee: <b>Das Doppel-i ist das Logo.</b> Zwei Zeichen — zwei Macs, zwei Welten (Ordner ↔ Identität) — und die Verbindung, die biind herstellt. Runde 1 brachte drei Claude-Richtungen; Jörns eigener Entwurf, die <b>Fusion</b>, hat sie geschlagen: Die Bindung ist strukturell in die Buchstaben gebaut. Hier der Feinschliff.</p>
   </header>
 
+  <!-- ================= RUNDE 2: DIE FUSION ================= -->
+  <section class="runde2">
+    <h2>Runde 2 · Die Fusion<span class="tag">Jörns Entwurf, verfeinert</span></h2>
+    <p class="sub">Jörns Synthese hat gewonnen: beide i-Stämme laufen durch den U-Bogen, Cyan + Orange erzählen die zwei ungleichen Welten. Hier die SVG-Rekonstruktion mit den zwei offenen Entscheidungen — Unterlänge und Kleingrößen-Verhalten.</p>
+
+    <p class="sub"><b>Variante 1 — deutliche Unterlänge</b> (Empfehlung: macht die Silhouette unverwechselbar, wie eine echte g/j-Unterlänge):</p>
+    <div class="marken">
+      <div class="karte frost">
+        <svg viewBox="15 0 450 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wortmarke biind, Fusion mit Unterlänge, hell">
+          <g stroke="#303030" stroke-width="18" stroke-linecap="round" fill="none">
+            <line x1="50" y1="30" x2="50" y2="170"/><circle cx="84" cy="136" r="34"/>
+            <line x1="250" y1="70" x2="250" y2="170"/><path d="M250,104 A34,34 0 0 1 318,104 L318,170"/>
+            <circle cx="388" cy="136" r="34"/><line x1="422" y1="30" x2="422" y2="170"/>
+          </g>
+          <path d="M150,56 L150,182 A22,22 0 0 0 194,182 L194,150" stroke="#21B6C8" stroke-width="18" stroke-linecap="round" fill="none"/>
+          <circle cx="150" cy="30" r="13.5" fill="#21B6C8"/>
+          <line x1="194" y1="92" x2="194" y2="154" stroke="#EE9F3C" stroke-width="18" stroke-linecap="round"/>
+          <circle cx="194" cy="64" r="11" fill="#EE9F3C"/>
+        </svg>
+      </div>
+      <div class="karte night">
+        <svg viewBox="15 0 450 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wortmarke biind, Fusion mit Unterlänge, dunkel">
+          <g stroke="#E8ECF0" stroke-width="18" stroke-linecap="round" fill="none">
+            <line x1="50" y1="30" x2="50" y2="170"/><circle cx="84" cy="136" r="34"/>
+            <line x1="250" y1="70" x2="250" y2="170"/><path d="M250,104 A34,34 0 0 1 318,104 L318,170"/>
+            <circle cx="388" cy="136" r="34"/><line x1="422" y1="30" x2="422" y2="170"/>
+          </g>
+          <path d="M150,56 L150,182 A22,22 0 0 0 194,182 L194,150" stroke="#3AD0DE" stroke-width="18" stroke-linecap="round" fill="none"/>
+          <circle cx="150" cy="30" r="13.5" fill="#3AD0DE"/>
+          <line x1="194" y1="92" x2="194" y2="154" stroke="#EE9F3C" stroke-width="18" stroke-linecap="round"/>
+          <circle cx="194" cy="64" r="11" fill="#EE9F3C"/>
+        </svg>
+      </div>
+    </div>
+
+    <p class="sub" style="margin-top:18px"><b>Variante 2 — U sitzt auf der Grundlinie</b> (ruhiger, konventioneller):</p>
+    <div class="marken">
+      <div class="karte frost">
+        <svg viewBox="15 0 450 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wortmarke biind, Fusion auf Grundlinie, hell">
+          <g stroke="#303030" stroke-width="18" stroke-linecap="round" fill="none">
+            <line x1="50" y1="30" x2="50" y2="170"/><circle cx="84" cy="136" r="34"/>
+            <line x1="250" y1="70" x2="250" y2="170"/><path d="M250,104 A34,34 0 0 1 318,104 L318,170"/>
+            <circle cx="388" cy="136" r="34"/><line x1="422" y1="30" x2="422" y2="170"/>
+          </g>
+          <path d="M150,56 L150,139 A22,22 0 0 0 194,139 L194,118" stroke="#21B6C8" stroke-width="18" stroke-linecap="round" fill="none"/>
+          <circle cx="150" cy="30" r="13.5" fill="#21B6C8"/>
+          <line x1="194" y1="92" x2="194" y2="122" stroke="#EE9F3C" stroke-width="18" stroke-linecap="round"/>
+          <circle cx="194" cy="64" r="11" fill="#EE9F3C"/>
+        </svg>
+      </div>
+      <div class="karte night">
+        <svg viewBox="15 0 450 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wortmarke biind, Fusion auf Grundlinie, dunkel">
+          <g stroke="#E8ECF0" stroke-width="18" stroke-linecap="round" fill="none">
+            <line x1="50" y1="30" x2="50" y2="170"/><circle cx="84" cy="136" r="34"/>
+            <line x1="250" y1="70" x2="250" y2="170"/><path d="M250,104 A34,34 0 0 1 318,104 L318,170"/>
+            <circle cx="388" cy="136" r="34"/><line x1="422" y1="30" x2="422" y2="170"/>
+          </g>
+          <path d="M150,56 L150,139 A22,22 0 0 0 194,139 L194,118" stroke="#3AD0DE" stroke-width="18" stroke-linecap="round" fill="none"/>
+          <circle cx="150" cy="30" r="13.5" fill="#3AD0DE"/>
+          <line x1="194" y1="92" x2="194" y2="122" stroke="#EE9F3C" stroke-width="18" stroke-linecap="round"/>
+          <circle cx="194" cy="64" r="11" fill="#EE9F3C"/>
+        </svg>
+      </div>
+    </div>
+
+    <p class="sub" style="margin-top:18px"><b>Der Größentest</b> — das Icon-Motiv von 128 px bis 16 px, plus Menüleisten-Probe (monochrom, Template-Stil):</p>
+    <div class="groessen">
+      <figure>
+        <svg width="128" height="128" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Icon 128 Pixel">
+          <rect width="120" height="120" fill="#2B2F33"/>
+          <g transform="translate(60,60) scale(0.55) translate(-18.5,-11)">
+            <path d="M0,-12 L0,44 A20,20 0 0 0 40,44 L40,16" stroke="#3AD0DE" stroke-width="17" stroke-linecap="round" fill="none"/>
+            <circle cx="0" cy="-38" r="13" fill="#3AD0DE"/>
+            <line x1="40" y1="6" x2="40" y2="22" stroke="#EE9F3C" stroke-width="17" stroke-linecap="round"/>
+            <circle cx="40" cy="-16" r="10" fill="#EE9F3C"/>
+          </g>
+        </svg>
+        <figcaption>128 px</figcaption>
+      </figure>
+      <figure>
+        <svg width="64" height="64" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Icon 64 Pixel">
+          <rect width="120" height="120" fill="#2B2F33"/>
+          <g transform="translate(60,60) scale(0.55) translate(-18.5,-11)">
+            <path d="M0,-12 L0,44 A20,20 0 0 0 40,44 L40,16" stroke="#3AD0DE" stroke-width="17" stroke-linecap="round" fill="none"/>
+            <circle cx="0" cy="-38" r="13" fill="#3AD0DE"/>
+            <line x1="40" y1="6" x2="40" y2="22" stroke="#EE9F3C" stroke-width="17" stroke-linecap="round"/>
+            <circle cx="40" cy="-16" r="10" fill="#EE9F3C"/>
+          </g>
+        </svg>
+        <figcaption>64 px</figcaption>
+      </figure>
+      <figure>
+        <svg width="32" height="32" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Icon 32 Pixel">
+          <rect width="120" height="120" fill="#2B2F33"/>
+          <g transform="translate(60,60) scale(0.55) translate(-18.5,-11)">
+            <path d="M0,-12 L0,44 A20,20 0 0 0 40,44 L40,16" stroke="#3AD0DE" stroke-width="17" stroke-linecap="round" fill="none"/>
+            <circle cx="0" cy="-38" r="13" fill="#3AD0DE"/>
+            <line x1="40" y1="6" x2="40" y2="22" stroke="#EE9F3C" stroke-width="17" stroke-linecap="round"/>
+            <circle cx="40" cy="-16" r="10" fill="#EE9F3C"/>
+          </g>
+        </svg>
+        <figcaption>32 px</figcaption>
+      </figure>
+      <figure>
+        <svg width="16" height="16" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Icon 16 Pixel">
+          <rect width="120" height="120" fill="#2B2F33"/>
+          <g transform="translate(60,60) scale(0.55) translate(-18.5,-11)">
+            <path d="M0,-12 L0,44 A20,20 0 0 0 40,44 L40,16" stroke="#3AD0DE" stroke-width="17" stroke-linecap="round" fill="none"/>
+            <circle cx="0" cy="-38" r="13" fill="#3AD0DE"/>
+            <line x1="40" y1="6" x2="40" y2="22" stroke="#EE9F3C" stroke-width="17" stroke-linecap="round"/>
+            <circle cx="40" cy="-16" r="10" fill="#EE9F3C"/>
+          </g>
+        </svg>
+        <figcaption>16 px</figcaption>
+      </figure>
+      <figure>
+        <svg width="18" height="18" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Menüleisten-Variante monochrom 18 Pixel" style="border-radius:0">
+          <g transform="translate(60,60) scale(0.62) translate(-18.5,-11)" fill="none">
+            <path d="M0,-12 L0,44 A20,20 0 0 0 40,44 L40,16" stroke="currentColor" stroke-width="19" stroke-linecap="round"/>
+            <circle cx="0" cy="-38" r="14" fill="currentColor"/>
+            <line x1="40" y1="6" x2="40" y2="22" stroke="currentColor" stroke-width="19" stroke-linecap="round"/>
+            <circle cx="40" cy="-28" r="11" fill="currentColor"/>
+          </g>
+        </svg>
+        <figcaption>Menüleiste 18 px<br/>(monochrom)</figcaption>
+      </figure>
+    </div>
+
+    <div class="why" style="margin-top:18px">
+      <p><b>Feinschliff gegenüber dem Illustrator-Stand:</b> Punkte mit definierter Luft statt Berührung (klumpt sonst ab 32 px), Cyan eine Stufe satter auf Weiß (#21B6C8) und leuchtender auf Dunkel (#3AD0DE), Unterlänge als bewusste Entscheidung statt halbem Überhang. Der Orange-Stamm legt sich sichtbar über den Cyan-Arm — die Naht ist Absicht: zwei Teile, eine Form.</p>
+      <p><b>Wichtigster Befund der Rekonstruktion:</b> Liegen die beiden Punkte auf ähnlicher Höhe, liest sich der Cluster als <b>ü</b> — „bünd". Die starke <b>Diagonale</b> aus Jörns Original (Cyan hoch links, Orange deutlich tiefer rechts) ist also nicht Dekoration, sondern trägt die ii-Lesbarkeit. Sie ist hiermit als Muss-Regel der Marke festgehalten.</p>
+    </div>
+  </section>
+
   <!-- ================= RICHTUNG A ================= -->
-  <section>
+  <p class="eyebrow" style="margin-top:64px">Runde 1 · Claudes drei Richtungen — Archiv, von der Fusion geschlagen</p>
+  <section style="margin-top:24px">
     <h2>A · Liaison<span class="tag">die stille</span></h2>
     <p class="sub">Die beiden i-Punkte verschmelzen zu einem einzigen Bogen — eine Brücke, die nur da ist, wo man hinschaut. Am reduziertesten, am elegantesten.</p>
     <div class="marken">
@@ -268,8 +414,8 @@
   </section>
 
   <div class="fazit">
-    <h2>Meine Empfehlung fürs Vergleichen</h2>
-    <p><b>B (Bindung)</b> ist der sicherste Kandidat: lesbar, skalierbar, erzählstark — und die Zweifarbigkeit der Knoten (zwei Macs!) gibt ihm eine eigene Idee. <b>A (Liaison)</b> ist die eleganteste, wenn du den Mut zum abstrakten Wortbild hast. <b>C (Band)</b> hat das größte Potenzial für ein spektakuläres Liquid-Glass-Icon, braucht aber die meiste Handarbeit.</p>
-    <p>Farbwelt ist hier bewusst dein bestehendes Petrol/Frost/Midnight-Umfeld — leicht austauschbar, falls deine Entwürfe eine andere Richtung aufmachen. Jetzt bin ich gespannt auf deine: Wir legen sie nebeneinander, nehmen das Beste aus beiden Welten, und dann bauen wir das Icon-Set über die macOSicons-API.</p>
+    <h2>Stand des Prozesses</h2>
+    <p><b>Die Fusion (Jörns Entwurf) hat gewonnen</b> — die Bindung ist strukturell in die Buchstaben gebaut statt dazugelegt, und Cyan/Orange erzählen die zwei ungleichen Welten. Die drei Claude-Richtungen unten bleiben als Archiv der Runde 1 stehen.</p>
+    <p><b>Offene Entscheidungen für Jörn:</b> Unterlänge (Variante 1) oder Grundlinie (Variante 2)? Und: Sind die nachgeschärften Farbtöne (#21B6C8 / #3AD0DE / #EE9F3C) im Sinn des Originals? Danach: Feinform in Illustrator finalisieren → Icon-Set über die macOSicons-API (Frost/Midnight) → Wortmarke in App, README und GitHub.</p>
   </div>
 </div>

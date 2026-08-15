@@ -56,9 +56,27 @@ erzählt „App-Verwaltung" statt „binden".
 - Gradient → Solid; Kontrast auf Weiß; Frost/Midnight-Varianten
 - Größentest 16/32/128/1024 px (Menüleiste bis App-Icon)
 
+## Runde 2: Die Fusion, verfeinert (15.08.2026)
+
+Jörn hat die Synthese über Nacht selbst gebaut: beide i-Stämme laufen jetzt
+durch den U-Bogen, und der Cyan/Orange-Zweiklang (aus dem verworfenen
+Kachel-Entwurf gerettet!) macht die „zwei ungleichen Welten" farblich auf.
+Claude hat den Entwurf als SVG rekonstruiert — mit zwei Baseline-Varianten
+(deutliche Unterlänge vs. Grundlinie), nachgeschärften Farbtönen
+(#21B6C8 hell / #3AD0DE dunkel / #EE9F3C) und Größentests 128 → 16 px plus
+Menüleisten-Monochrom. Alles auf der Vergleichsseite (aktualisiert).
+
+**Der wichtigste Befund der Rekonstruktion:** Liegen die beiden i-Punkte auf
+ähnlicher Höhe, kippt der Cluster in die ü-Lesart — aus biind wird „bünd".
+Die starke **Punkt-Diagonale** aus Jörns Original (Cyan hoch links, Orange
+deutlich tiefer rechts) ist also keine Dekoration, sondern trägt die
+Lesbarkeit. Sie ist ab jetzt Muss-Regel der Marke. (Gefunden, weil die erste
+Rekonstruktion die Diagonale abgeflacht hatte und prompt „bünd" las —
+Verifikation am gerenderten Bild, wieder einmal.)
+
 ## Nächste Schritte
 
-1. Runde 2: Synthese ausarbeiten (Jörns Fusion + handwerkliche Schicht)
-2. Feinform & Farben festziehen, Größentests
+1. Jörns Entscheidungen: Unterlänge oder Grundlinie? Farbtöne so ok?
+2. Feinform in Illustrator finalisieren (Diagonale als Regel)
 3. App-Icon-Set über die macOSicons-API produzieren (Frost/Midnight),
    Wortmarke in App/README/GitHub einsetzen
